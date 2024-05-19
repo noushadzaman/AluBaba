@@ -1,7 +1,6 @@
 import { userModel } from "@/models/user-model";
 
 export async function getUserByEmail(email) {
-  // await dbConnect();
   const user = await userModel.findOne({ email: email }).lean();
   return user;
 }

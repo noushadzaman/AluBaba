@@ -1,7 +1,10 @@
+import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
+import Logout from "./auth/Logout";
 
-const Nav = () => {
+const Nav = async () => {
+    const session = await auth();
 
     return (
         <nav class="bg-gray-800">
@@ -84,10 +87,14 @@ const Nav = () => {
                         <Link href="/about" class="text-gray-200 hover:text-white transition">About us</Link>
                         <Link href="/contact" class="text-gray-200 hover:text-white transition">Contact us</Link>
                     </div>
-                    <Link
-                        href="/login"
-                        class="text-gray-200 hover:text-white transition"
-                    >Login</Link>
+                    {
+                        session?.user ?
+                            <Logout />
+                            : <Link
+                                href="/login"
+                                class="text-gray-200 hover:text-white transition"
+                            >Login</Link>
+                    }
                 </div>
             </div>
         </nav>
