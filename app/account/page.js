@@ -1,54 +1,39 @@
+import { auth } from "@/auth";
+import AccountCard from "@/components/account/AccountCard";
+import { getUserByEmail } from "@/database/queries";
+import { redirect } from "next/navigation";
 
-export default function AccountPage() {
+export default async function AccountPage() {
+  const session = await auth();
+  if (!session) {
+    redirect("/login");
+  }
+  const user = await getUserByEmail(session?.user?.email);
 
   return (
     <div class="container  items-start gap-6 pt-4 pb-16">
       <div class=" grid grid-cols-3 gap-4 mx-auto max-w-5xl">
-
-        <div class="shadow rounded bg-white px-4 pt-6 pb-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-medium text-gray-800 text-lg">Personal Profile</h3>
-            <a href="#" class="text-primary">
-              Edit
-            </a>
-          </div>
-          <div class="space-y-1">
-            <h4 class="text-gray-700 font-medium">John Doe</h4>
-            <p class="text-gray-800">example@mail.com</p>
-            <p class="text-gray-800">0811 8877 988</p>
-          </div>
-        </div>
-
-        <div class="shadow rounded bg-white px-4 pt-6 pb-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-medium text-gray-800 text-lg">Shipping address</h3>
-            <a href="#" class="text-primary">
-              Edit
-            </a>
-          </div>
-          <div class="space-y-1">
-            <h4 class="text-gray-700 font-medium">John Doe</h4>
-            <p class="text-gray-800">Medan, North Sumatera</p>
-            <p class="text-gray-800">20371</p>
-            <p class="text-gray-800">0811 8877 988</p>
-          </div>
-        </div>
-
-        <div class="shadow rounded bg-white px-4 pt-6 pb-8">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="font-medium text-gray-800 text-lg">Billing address</h3>
-            <a href="#" class="text-primary">
-              Edit
-            </a>
-          </div>
-          <div class="space-y-1">
-            <h4 class="text-gray-700 font-medium">John Doe</h4>
-            <p class="text-gray-800">Medan, North Sumatera</p>
-            <p class="text-gray-800">20317</p>
-            <p class="text-gray-800">0811 8877 988</p>
-          </div>
-        </div>
-
+        <AccountCard
+          user={user}
+          title={"Personal Profile"}
+          firstPara={user?.name}
+          secondPara={user?.email}
+          thirdPara={user?.phone_number}
+        />
+        <AccountCard
+          user={user}
+          title={"Shipping address"}
+          firstPara={user?.name}
+          secondPara={user?.shipping_address}
+          thirdPara={user?.shipping_address_number}
+        />
+        <AccountCard
+          user={user}
+          title={"Billing address"}
+          firstPara={user?.name}
+          secondPara={user?.billing_address}
+          thirdPara={user?.billing_address_number}
+        />
       </div>
     </div>
   );
