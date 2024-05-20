@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const ProductGallery = () => {
+    
     return (
         <div>
             <Image

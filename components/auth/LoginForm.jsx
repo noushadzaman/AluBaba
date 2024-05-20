@@ -30,7 +30,7 @@ const LoginForm = () => {
     return (
         <>
             {
-                error && <div className="text-xl text-red-400 text-center">{error}</div>
+                error && <div class="text-xl text-red-400 text-center">{error}</div>
             }
             <form onSubmit={onSubmit}>
                 <div class="space-y-2">

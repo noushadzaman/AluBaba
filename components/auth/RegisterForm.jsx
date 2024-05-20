@@ -44,7 +44,7 @@ const RegisterForm = () => {
 
     return (
         <>
-            <div className="text-xl text-red-500 text-center">{error && error}</div>
+            <div class="text-xl text-red-500 text-center">{error && error}</div>
             <form onSubmit={onSubmit}  >
                 <div class="space-y-2">
                     <div>

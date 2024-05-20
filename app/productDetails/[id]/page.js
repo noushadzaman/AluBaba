@@ -2,15 +2,19 @@ import Description from "@/components/productDetails/Description";
 import ProductGallery from "@/components/productDetails/ProductGallery";
 import ProductInfo from "@/components/productDetails/ProductInfo";
 import RelatedProducts from "@/components/productDetails/RelatedProducts";
+import { getProductById } from "@/database/queries";
 
-export default function page() {
+export default async function page({ params: { id } }) {
+  const product = await getProductById(id);
+  console.log(product);
+
   return (
     <>
       <div class="container grid grid-cols-2 gap-6">
-        <ProductGallery />
-        <ProductInfo />
+        <ProductGallery gallery={product?.images} />
+        <ProductInfo product={product}/>
       </div>
-      <Description />
+      <Description description={product?.description} />
       <RelatedProducts />
     </>
   );

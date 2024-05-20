@@ -1,4 +1,6 @@
+import { productModel } from "@/models/product-model";
 import { userModel } from "@/models/user-model";
+import { transformArray, transformObj } from "@/utils";
 
 export async function getUserByEmail(email) {
   const user = await userModel.findOne({ email: email }).lean();
@@ -25,4 +27,14 @@ export async function updateUser(newUser) {
     }
   }
   user.save();
+}
+
+export async function getAllProducts() {
+  const products = await productModel.find().lean();
+  return transformArray(products);
+}
+
+export async function getProductById(id) {
+  const product = await productModel.findById(id).lean();
+  return transformObj(product);
 }

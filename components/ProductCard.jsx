@@ -1,6 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
+    
     return (
         <div class="bg-white shadow rounded overflow-hidden group">
             <div class="relative">
@@ -32,11 +34,11 @@ const ProductCard = () => {
                 </div>
             </div>
             <div class="pt-4 pb-3 px-4">
-                <a href="#">
+                <Link href={`/productDetails/${product?.id}`}>
                     <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                        Guyer Chair
+                        {product?.name}
                     </h4>
-                </a>
+                </Link>
                 <div class="flex items-baseline mb-1 space-x-2">
                     <p class="text-xl text-primary font-semibold">$45.00</p>
                     <p class="text-sm text-gray-400 line-through">$55.90</p>
@@ -62,12 +64,12 @@ const ProductCard = () => {
                     <div class="text-xs text-gray-500 ml-3">(150)</div>
                 </div>
             </div>
-            <a
+            <button
                 href="#"
                 class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
             >
                 Add to cart
-            </a>
+            </button>
         </div>
     );
 };

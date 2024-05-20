@@ -1,0 +1,46 @@
+[
+    {
+        "name": "ITALIAN L SHAPE SOFA1",
+        "images": [],
+        "availability": true,
+        "brand": "Phillips",
+        "category": "kitchen",
+        "sku": "BE45VGRT",
+        "price": 2000,
+        "discount": 10,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius eum reprehenderit dolore vel mollitia optio consequatur hic asperiores inventore suscipit, velit consequuntur, voluptate doloremque iure necessitatibus adipisci magnam porro."
+    },
+    {
+        "name": "ITALIAN L SHAPE SOFA2",
+        "images": [],
+        "availability": true,
+        "brand": "Phillips",
+        "category": "kitchen",
+        "sku": "BE45VGRT",
+        "price": 2000,
+        "discount": 10,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius eum reprehenderit dolore vel mollitia optio consequatur hic asperiores inventore suscipit, velit consequuntur, voluptate doloremque iure necessitatibus adipisci magnam porro."
+    },
+    {
+        "name": "ITALIAN L SHAPE SOFA3",
+        "images": [],
+        "availability": true,
+        "brand": "Phillips",
+        "category": "kitchen",
+        "sku": "BE45VGRT",
+        "price": 2000,
+        "discount": 10,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius eum reprehenderit dolore vel mollitia optio consequatur hic asperiores inventore suscipit, velit consequuntur, voluptate doloremque iure necessitatibus adipisci magnam porro."
+    },
+    {
+        "name": "ITALIAN L SHAPE SOFA4",
+        "images": [],
+        "availability": true,
+        "brand": "Phillips",
+        "category": "kitchen",
+        "sku": "BE45VGRT",
+        "price": 2000,
+        "discount": 10,
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos eius eum reprehenderit dolore vel mollitia optio consequatur hic asperiores inventore suscipit, velit consequuntur, voluptate doloremque iure necessitatibus adipisci magnam porro."
+    }
+]

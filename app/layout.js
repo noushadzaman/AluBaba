@@ -18,7 +18,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body class={inter.className}>
         <Header />
         <Nav />
         <div style={{ minHeight: `calc(100vh - 583.42px)` }}>{children}</div>
