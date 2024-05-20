@@ -37,6 +37,10 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  detailed_description: {
+    type: String,
+    required: true,
+  },
 });
 
 export const productModel =

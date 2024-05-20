@@ -37,6 +37,10 @@ const userSchema = new Schema({
     required: false,
     type: String,
   },
+  wishlist: {
+    required: false,
+    type: Array,
+  },
 });
 
 export const userModel =

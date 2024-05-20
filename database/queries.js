@@ -29,6 +29,27 @@ export async function updateUser(newUser) {
   user.save();
 }
 
+export async function addToWishList(userEmail, productId) {
+  try {
+    const user = await userModel.findOne({ email: userEmail });
+    if (user) {
+      if (!user.wishlist) {
+        user.wishlist = [];
+      }
+      if (!user.wishlist.includes(productId)) {
+        user.wishlist.push(productId);
+        await user.save();
+      } else {
+        console.log("Product already in wishlist");
+      }
+    } else {
+      console.log("User not found");
+    }
+  } catch (error) {
+    console.error("Error updating wishlist", error);
+  }
+}
+
 export async function getAllProducts() {
   const products = await productModel.find().lean();
   return transformArray(products);
@@ -37,4 +58,12 @@ export async function getAllProducts() {
 export async function getProductById(id) {
   const product = await productModel.findById(id).lean();
   return transformObj(product);
+}
+
+export async function getProductByIdForCard(id) {
+  const product = await productModel
+    .findById(id)
+    .select(["name", "availability", "price", "discount"])
+    .lean();
+  return product;
 }

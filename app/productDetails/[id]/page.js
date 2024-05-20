@@ -14,7 +14,7 @@ export default async function page({ params: { id } }) {
         <ProductGallery gallery={product?.images} />
         <ProductInfo product={product}/>
       </div>
-      <Description description={product?.description} />
+      <Description description={product?.detailed_description} />
       <RelatedProducts />
     </>
   );

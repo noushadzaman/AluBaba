@@ -1,13 +1,25 @@
+import { auth } from "@/auth";
 import WishlistCard from "@/components/wishlist/wishlistCard";
-import Image from "next/image";
+import { getUserByEmail } from "@/database/queries";
+import { redirect } from "next/navigation";
 import React from "react";
 
-export default function WishListPage() {
+export default async function WishListPage() {
+  const session = await auth();
+  if (!session) {
+    redirect("/login");
+  }
+  const user = await getUserByEmail(session?.user?.email);
+  const wishlist = user?.wishlist;
+  console.log(wishlist);
+
   return (
     <div class="container gap-6 pt-4 pb-16">
       <div class="mx-auto space-y-4 max-w-6xl">
-        <WishlistCard />
-        <div class="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded">
+        {wishlist.map((wish) => (
+          <WishlistCard key={wish} wish={wish} />
+        ))}
+        {/* <div class="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded">
           <div class="w-28">
             <Image
               width={300}
@@ -34,7 +46,7 @@ export default function WishListPage() {
           <div class="text-gray-600 cursor-pointer hover:text-primary">
             <i class="fa-solid fa-trash"></i>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
