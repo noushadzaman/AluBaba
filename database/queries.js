@@ -50,6 +50,31 @@ export async function addToWishList(userEmail, productId) {
   }
 }
 
+export async function addToCart(userEmail, productId, items) {
+  try {
+    const user = await userModel.findOne({ email: userEmail });
+    if (user) {
+      if (!user.cart_items) {
+        user.cart_items = [];
+      }
+      const found = user.cart_items.find(
+        (item) => item.productId === productId
+      );
+      console.log(found);
+      if (!found) {
+        user.cart_items.push({ productId, number: items });
+        await user.save();
+      } else {
+        console.log("Product already in wishlist");
+      }
+    } else {
+      console.log("User not found");
+    }
+  } catch (error) {
+    console.error("Error updating wishlist", error);
+  }
+}
+
 export async function getAllProducts() {
   const products = await productModel.find().lean();
   return transformArray(products);

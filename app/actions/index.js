@@ -1,7 +1,7 @@
 "use server";
 
 import { signIn } from "@/auth";
-import { addToWishList, updateUser } from "@/database/queries";
+import { addToCart, addToWishList, updateUser } from "@/database/queries";
 
 async function updateUserInDB(newUser) {
   try {
@@ -20,6 +20,15 @@ async function updateUserWishList({ userEmail, productId }) {
   }
 }
 
+async function updateUserCart({ userEmail, productId, items }) {
+  console.log(items, productId);
+  try {
+    await addToCart(userEmail, productId, items);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 async function login(formData) {
   try {
     const response = await signIn("credentials", {
@@ -33,4 +42,4 @@ async function login(formData) {
   }
 }
 
-export { updateUserInDB, login, updateUserWishList };
+export { updateUserInDB, login, updateUserWishList, updateUserCart };

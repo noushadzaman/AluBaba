@@ -1,24 +1,29 @@
 "use client";
 
-import { updateUserWishList } from "@/app/actions";
+import { updateUserCart, updateUserWishList } from "@/app/actions";
 import Link from "next/link";
 import { useState } from "react";
 
 const AddToCartAndWishList = ({ productId, userEmail }) => {
-    const [item, setItem] = useState(0);
+    const [items, setItems] = useState(1);
 
-    async function updateUserWishlist() {
+    async function updateWishlist() {
         await updateUserWishList({ userEmail, productId });
     }
 
+    async function updateCart() {
+        await updateUserCart({ userEmail, productId, items });
+    }
+
     function decreaseItem() {
-        if (item <= 0) {
+        if (items <= 0) {
             return;
         }
-        setItem(item - 1);
+        setItems(items - 1);
     }
+
     function increaseItem() {
-        setItem(item + 1);
+        setItems(items + 1);
     }
 
     return (
@@ -32,7 +37,7 @@ const AddToCartAndWishList = ({ productId, userEmail }) => {
                         -
                     </button>
                     <div class="h-8 w-8 text-base flex items-center justify-center">
-                        {item}
+                        {items}
                     </div>
                     <button
                         onClick={increaseItem}
@@ -44,18 +49,19 @@ const AddToCartAndWishList = ({ productId, userEmail }) => {
 
             <div class="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
                 <Link
+                    onClick={updateCart}
                     href="/cart"
                     class="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-primary transition"
                 >
                     <i class="fa-solid fa-bag-shopping"></i> Add to cart
                 </Link>
-                <button
-                    onClick={updateUserWishlist}
-                    // href="/wishlist"
+                <Link
+                    onClick={updateWishlist}
+                    href="/wishlist"
                     class="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-primary transition"
                 >
                     <i class="fa-solid fa-heart"></i> Wishlist
-                </button>
+                </Link>
             </div>
         </>
     );

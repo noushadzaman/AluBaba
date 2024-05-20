@@ -6,7 +6,6 @@ import { getProductById } from "@/database/queries";
 
 export default async function page({ params: { id } }) {
   const product = await getProductById(id);
-  console.log(product);
 
   return (
     <>

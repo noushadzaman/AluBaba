@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import ProductCardTwo from "@/components/ProductCardTwo";
 import WishlistCard from "@/components/wishlist/wishlistCard";
 import { getUserByEmail } from "@/database/queries";
 import { redirect } from "next/navigation";
@@ -11,14 +12,15 @@ export default async function WishListPage() {
   }
   const user = await getUserByEmail(session?.user?.email);
   const wishlist = user?.wishlist;
-  console.log(wishlist);
 
   return (
     <div class="container gap-6 pt-4 pb-16">
       <div class="mx-auto space-y-4 max-w-6xl">
-        {wishlist.map((wish) => (
-          <WishlistCard key={wish} wish={wish} />
-        ))}
+        {wishlist &&
+          wishlist.map((itemId) => (
+            <ProductCardTwo key={itemId} itemId={itemId} />
+          ))}
+        {!wishlist && <p>No items in the wishlist</p>}
         {/* <div class="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded">
           <div class="w-28">
             <Image

@@ -41,6 +41,10 @@ const userSchema = new Schema({
     required: false,
     type: Array,
   },
+  cart_items: {
+    required: false,
+    type: Array,
+  },
 });
 
 export const userModel =

@@ -72,7 +72,6 @@ const ProductInfo = async ({ product }) => {
                 userEmail={session?.user?.email}
             />
             <SocialShare id={product?.id} />
-
         </div>
     );
 };
