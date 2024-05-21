@@ -25,25 +25,25 @@ const AccountCard = ({ user, title, firstPara, secondPara, thirdPara }) => {
                 updateUserInDB(newUser);
                 setIsEdit(false);
             }}
-            class="shadow rounded bg-white px-4 pt-6 pb-8">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="font-medium text-gray-800 text-lg">{title}</h3>
+            className="shadow rounded bg-white px-4 pt-6 pb-8">
+            <div className="flex items-center justify-between mb-4">
+                <h3 className="font-medium text-gray-800 text-lg">{title}</h3>
                 {
                     isEdit ?
                         <button
                             type="submit"
-                            class="text-primary">
+                            className="text-primary">
                             Save
                         </button>
                         : <p
                             onClick={() => setIsEdit(true)}
-                            class="text-primary cursor-pointer">
+                            className="text-primary cursor-pointer">
                             Edit
                         </p>
                 }
             </div>
-            <div class="space-y-1">
-                <h4 class="text-gray-700 font-medium">{firstPara}</h4>
+            <div className="space-y-1">
+                <h4 className="text-gray-700 font-medium">{firstPara}</h4>
                 {
                     (isEdit) && title !== "Personal Profile" ?
                         <input
@@ -60,7 +60,7 @@ const AccountCard = ({ user, title, firstPara, secondPara, thirdPara }) => {
                             }
                             id={"secondPara"}
                         />
-                        : <p class="text-gray-800">{secondPara || data.secondPara}</p>
+                        : <p className="text-gray-800">{secondPara || data.secondPara}</p>
                 }
                 {
                     isEdit ?
@@ -81,7 +81,7 @@ const AccountCard = ({ user, title, firstPara, secondPara, thirdPara }) => {
                             }
                             id={"thirdPara"}
                         />
-                        : <p class="text-gray-800">{thirdPara || data.thirdPara}</p>
+                        : <p className="text-gray-800">{thirdPara || data.thirdPara}</p>
                 }
             </div>
         </form>

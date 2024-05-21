@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const Ads = () => {
     return (
-        <div class="container pb-16">
+        <div className="container pb-16">
             <a href="#">
                 <Image
                     height={300}
                     width={1000}
                     src="/assets/images/offer.jpg"
                     alt="ads"
-                    class="w-full"
+                    className="w-full"
                 />
             </a>
         </div>

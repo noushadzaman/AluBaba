@@ -5,6 +5,10 @@ import CopyRight from "@/components/CopyRight";
 import Nav from "@/components/Nav";
 import Header from "@/components/Header";
 import { dbConnect } from "@/service/mongo";
+import WishlistProvider from "@/providers/WishListProvider";
+import { auth } from "@/auth";
+import { getUserByEmail } from "@/database/queries";
+import CartProvider from "@/providers/CartProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,15 +19,23 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   await dbConnect();
+  const session = await auth();
+  const user = await getUserByEmail(session?.user?.email);
 
   return (
     <html lang="en">
-      <body class={inter.className}>
-        <Header />
-        <Nav />
-        <div style={{ minHeight: `calc(100vh - 583.42px)` }}>{children}</div>
-        <Footer />
-        <CopyRight />
+      <body className={inter.className}>
+        <WishlistProvider dbWishList={user?.wishlist}>
+          <CartProvider dbCart={user?.cart_items}>
+            <Header />
+            <Nav />
+            <div style={{ minHeight: `calc(100vh - 583.42px)` }}>
+              {children}
+            </div>
+            <Footer />
+            <CopyRight />
+          </CartProvider>
+        </WishlistProvider>
       </body>
     </html>
   );

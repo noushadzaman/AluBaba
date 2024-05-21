@@ -1,5 +1,6 @@
 import { productModel } from "@/models/product-model";
 import { userModel } from "@/models/user-model";
+import { dbConnect } from "@/service/mongo";
 import { transformArray, transformObj } from "@/utils";
 
 export async function getUserByEmail(email) {
@@ -86,9 +87,10 @@ export async function getProductById(id) {
 }
 
 export async function getProductByIdForCard(id) {
+  await dbConnect();
   const product = await productModel
     .findById(id)
     .select(["name", "availability", "price", "discount"])
     .lean();
-  return product;
+  return transformObj(product);
 }

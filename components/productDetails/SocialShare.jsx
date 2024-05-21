@@ -17,7 +17,7 @@ const SocialShare = ({ id }) => {
     
 
     return (
-        <div class="flex gap-3 mt-4">
+        <div className="flex gap-3 mt-4">
             <div>
                 <h1>Share in social media</h1>
                 <div className='flex gap-4'>

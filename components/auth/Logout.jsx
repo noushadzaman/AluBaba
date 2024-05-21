@@ -10,7 +10,7 @@ const Logout = () => {
     return (
         <button
             onClick={handleLogOut}
-            class="text-gray-200 hover:text-white transition btn "
+            className="text-gray-200 hover:text-white transition btn "
         >Log out</button>
     );
 };

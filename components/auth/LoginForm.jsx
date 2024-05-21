@@ -30,55 +30,55 @@ const LoginForm = () => {
     return (
         <>
             {
-                error && <div class="text-xl text-red-400 text-center">{error}</div>
+                error && <div className="text-xl text-red-400 text-center">{error}</div>
             }
             <form onSubmit={onSubmit}>
-                <div class="space-y-2">
+                <div className="space-y-2">
                     <div>
-                        <label for="email" class="text-gray-600 mb-2 block">
+                        <label for="email" className="text-gray-600 mb-2 block">
                             Email address
                         </label>
                         <input
                             type="email"
                             name="email"
                             id="email"
-                            class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
+                            className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
                             placeholder="youremail.@domain.com"
                         />
                     </div>
                     <div>
-                        <label for="password" class="text-gray-600 mb-2 block">
+                        <label for="password" className="text-gray-600 mb-2 block">
                             Password
                         </label>
                         <input
                             type="password"
                             name="password"
                             id="password"
-                            class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
+                            className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
                             placeholder="*******"
                         />
                     </div>
                 </div>
-                <div class="flex items-center justify-between mt-6">
-                    <div class="flex items-center">
+                <div className="flex items-center justify-between mt-6">
+                    <div className="flex items-center">
                         <input
                             type="checkbox"
                             name="remember"
                             id="remember"
-                            class="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                            className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                         />
-                        <label for="remember" class="text-gray-600 ml-3 cursor-pointer">
+                        <label for="remember" className="text-gray-600 ml-3 cursor-pointer">
                             Remember me
                         </label>
                     </div>
-                    <a href="#" class="text-primary">
+                    <a href="#" className="text-primary">
                         Forgot password
                     </a>
                 </div>
-                <div class="mt-4">
+                <div className="mt-4">
                     <button
                         type="submit"
-                        class="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+                        className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
                     >
                         Login
                     </button>

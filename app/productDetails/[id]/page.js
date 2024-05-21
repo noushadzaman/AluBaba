@@ -9,7 +9,7 @@ export default async function page({ params: { id } }) {
 
   return (
     <>
-      <div class="container grid grid-cols-2 gap-6">
+      <div className="container grid grid-cols-2 gap-6">
         <ProductGallery gallery={product?.images} />
         <ProductInfo product={product}/>
       </div>
