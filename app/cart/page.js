@@ -1,6 +1,5 @@
 import { auth } from "@/auth";
-import ProductCardTwo from "@/components/ProductCardTwo";
-import { getUserByEmail } from "@/database/queries";
+import CartList from "@/components/cartlist/CartList";
 import { redirect } from "next/navigation";
 
 export default async function page() {
@@ -8,16 +7,10 @@ export default async function page() {
   if (!session) {
     redirect("/login");
   }
-  const user = await getUserByEmail(session?.user?.email);
-  const cartItems = user?.cart_items;
 
   return (
     <div className="container gap-6 pt-4 pb-16">
-      <div className="mx-auto space-y-4 max-w-6xl">
-        {cartItems &&
-          cartItems.map((item) => <ProductCardTwo key={item} item={item} />)}
-        {!cartItems && <p>No items in the cart</p>}
-      </div>
+      <CartList />
     </div>
   );
 }

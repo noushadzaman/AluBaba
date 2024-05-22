@@ -52,23 +52,8 @@ const ProductInfo = async ({ product }) => {
                     <span className="text-gray-600">{product?.sku}</span>
                 </p>
             </div>
-            <div className="flex items-baseline mb-1 space-x-2 font-roboto mt-4">
-                <p className="text-xl text-primary font-semibold">$
-                    {
-                        product?.discount ?
-                            product?.price - (product?.price * product.discount / 100)
-                            : product?.price
-                    }
-                </p>
-                {
-                    product?.discount && <p className="text-base text-gray-400 line-through">{product?.price}</p>
-                }
-            </div>
-            <p className="mt-4 text-gray-600">
-                {product?.short_description}
-            </p>
             <AddToCartAndWishList
-                productId={product?.id}
+                product={product}
                 userEmail={session?.user?.email}
             />
             <SocialShare id={product?.id} />

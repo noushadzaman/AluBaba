@@ -41,7 +41,9 @@ export async function addToWishList(userEmail, productId) {
         user.wishlist.push(productId);
         await user.save();
       } else {
-        console.log("Product already in wishlist");
+        const newWishes = user.wishlist.filter((wish) => wish !== productId);
+        user.wishlist = newWishes;
+        await user.save();
       }
     } else {
       console.log("User not found");
@@ -61,12 +63,33 @@ export async function addToCart(userEmail, productId, items) {
       const found = user.cart_items.find(
         (item) => item.productId === productId
       );
-      console.log(found);
       if (!found) {
         user.cart_items.push({ productId, number: items });
         await user.save();
+        return;
       } else {
-        console.log("Product already in wishlist");
+        const deletedItem = user.cart_items.find(
+          (cartItem) => cartItem.productId === productId
+        );
+        if (deletedItem?.number === items) {
+          const filteredCart = user.cart_items.filter(
+            (cartItem) => cartItem.productId !== productId
+          );
+          user.cart_items = filteredCart;
+          await user.save();
+          return;
+        } else {
+          const filteredCart = user.cart_items.filter(
+            (cartItem) => cartItem.productId !== productId
+          );
+          const newCart = [
+            ...filteredCart,
+            { productId, number: deletedItem.number - items },
+          ];
+          user.cart_items = newCart;
+          await user.save();
+          return;
+        }
       }
     } else {
       console.log("User not found");
@@ -76,21 +99,13 @@ export async function addToCart(userEmail, productId, items) {
   }
 }
 
-export async function getAllProducts() {
-  const products = await productModel.find().lean();
+export async function getAllProducts(product) {
+  const regex = new RegExp(product, "i");
+  const products = await productModel.find({ name: { $regex: regex } }).lean();
   return transformArray(products);
 }
 
 export async function getProductById(id) {
   const product = await productModel.findById(id).lean();
-  return transformObj(product);
-}
-
-export async function getProductByIdForCard(id) {
-  await dbConnect();
-  const product = await productModel
-    .findById(id)
-    .select(["name", "availability", "price", "discount"])
-    .lean();
   return transformObj(product);
 }

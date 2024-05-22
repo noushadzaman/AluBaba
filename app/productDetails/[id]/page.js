@@ -13,7 +13,7 @@ export default async function page({ params: { id } }) {
         <ProductGallery gallery={product?.images} />
         <ProductInfo product={product}/>
       </div>
-      <Description description={product?.detailed_description} />
+      <Description description={product?.description?.description} />
       <RelatedProducts />
     </>
   );
