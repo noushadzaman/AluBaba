@@ -1,7 +1,12 @@
 import { productModel } from "@/models/product-model";
 import { userModel } from "@/models/user-model";
 import { dbConnect } from "@/service/mongo";
-import { transformArray, transformObj } from "@/utils";
+import {
+  calculatePrice,
+  isPriceInBetween,
+  transformArray,
+  transformObj,
+} from "@/utils";
 
 export async function getUserByEmail(email) {
   const user = await userModel.findOne({ email: email }).lean();
@@ -99,9 +104,34 @@ export async function addToCart(userEmail, productId, items) {
   }
 }
 
-export async function getAllProducts(product) {
+export async function getAllProducts(
+  product,
+  category,
+  min_price,
+  max_price,
+  size
+) {
   const regex = new RegExp(product, "i");
-  const products = await productModel.find({ name: { $regex: regex } }).lean();
+  let products = await productModel.find({ name: { $regex: regex } }).lean();
+
+  if (category) {
+    const categoriesToMatch = category.split("|");
+    products = products.filter((product) =>
+      categoriesToMatch.includes(product.category)
+    );
+  }
+  if (min_price && max_price) {
+    products = products.filter((product) => {
+      return (
+        calculatePrice(product?.discount, product?.price) >= min_price &&
+        calculatePrice(product?.discount, product?.price) <= max_price
+      );
+    });
+  }
+  if (size) {
+    products = products.filter((product) => product?.size === size);
+  }
+
   return transformArray(products);
 }
 

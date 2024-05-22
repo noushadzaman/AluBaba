@@ -2,6 +2,7 @@
 import { updateUserCart, updateUserWishList } from "@/app/actions";
 import useCartList from "@/hooks/useCartList";
 import useWishList from "@/hooks/useWishList";
+import { calculatePrice } from "@/utils";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -66,18 +67,21 @@ const AddToCartAndWishList = ({ product, userEmail }) => {
         setItems(items + 1);
     }
 
+
+
     return (
         <>
             <div className="flex items-baseline mb-1 space-x-2 font-roboto mt-4">
                 <p className="text-xl text-primary font-semibold">$
                     {
-                        product?.discount ?
-                            (product?.price - (product?.price * product.discount / 100)) * items
-                            : (product?.price) * items
+                        calculatePrice(product?.discount, product?.price, items)
                     }
                 </p>
                 {
-                    product?.discount && <p className="text-base text-gray-400 line-through">{(product?.price) * items}</p>
+                    product?.discount &&
+                    <p className="text-base text-gray-400 line-through">
+                        {(product?.price) * items}
+                    </p>
                 }
             </div>
             <p className="mt-4 text-gray-600">

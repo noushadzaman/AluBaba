@@ -19,3 +19,11 @@ export async function transformObj(items) {
     ...rest,
   };
 }
+
+export function calculatePrice(discount, price, items = 1) {
+  if (discount) {
+    return (price - (price * discount) / 100) * items;
+  } else {
+    return price * items;
+  }
+}

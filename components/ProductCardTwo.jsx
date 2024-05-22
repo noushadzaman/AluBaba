@@ -26,7 +26,7 @@ const ProductCardTwo = ({ item, itemId }) => {
         <Image
           width={300}
           height={300}
-          src="/assets/images/products/product6.jpg"
+          src={product?.thumbnail}
           alt="product 6"
           className="w-full"
         />

@@ -8,7 +8,7 @@ export async function GET(request, { params }) {
   try {
     const user = await productModel
       .findById(params.id)
-      .select(["name", "availability", "price", "discount"])
+      .select(["name", "thumbnail", "availability", "price", "discount"])
       .lean();
     if (!user) {
       return new NextResponse("User not found", {

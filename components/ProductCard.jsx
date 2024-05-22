@@ -2,16 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
-    
+
     return (
         <div className="bg-white shadow rounded overflow-hidden group">
             <div className="relative">
                 <Image
                     width={400}
                     height={400}
-                    src="/assets/images/products/product6.jpg"
+                    src={product?.thumbnail}
                     alt="product 1"
-                    className="w-full"
+                    className="w-full p-6"
                 />
                 <div
                     className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
