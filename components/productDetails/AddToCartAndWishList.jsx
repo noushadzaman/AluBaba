@@ -1,4 +1,5 @@
 "use client";
+
 import { updateUserCart, updateUserWishList } from "@/app/actions";
 import useCartList from "@/hooks/useCartList";
 import useWishList from "@/hooks/useWishList";
@@ -105,7 +106,6 @@ const AddToCartAndWishList = ({ product, userEmail }) => {
                     </button>
                 </div>
             </div>
-
             <div className="mt-6 flex gap-3 border-b border-gray-200 pb-5 pt-5">
                 <Link
                     onClick={updateCart}

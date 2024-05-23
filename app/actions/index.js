@@ -1,7 +1,12 @@
 "use server";
 
 import { signIn } from "@/auth";
-import { addToCart, addToWishList, updateUser } from "@/database/queries";
+import {
+  addToCart,
+  addToWishList,
+  placeOrder,
+  updateUser,
+} from "@/database/queries";
 
 async function updateUserInDB(newUser) {
   try {
@@ -12,7 +17,6 @@ async function updateUserInDB(newUser) {
 }
 
 async function updateUserWishList({ userEmail, productId }) {
-  console.log(userEmail, productId);
   try {
     await addToWishList(userEmail, productId);
   } catch (error) {
@@ -21,7 +25,6 @@ async function updateUserWishList({ userEmail, productId }) {
 }
 
 async function updateUserCart({ userEmail, productId, items }) {
-  console.log(items, productId);
   try {
     await addToCart(userEmail, productId, items);
   } catch (error) {
@@ -42,4 +45,13 @@ async function login(formData) {
   }
 }
 
-export { updateUserInDB, login, updateUserWishList, updateUserCart };
+async function orderProduct(orderData) {
+  try {
+    const response = await placeOrder(orderData);
+    return response;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
+export { updateUserInDB, login, updateUserWishList, updateUserCart, orderProduct };

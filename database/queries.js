@@ -1,3 +1,4 @@
+import { orderModel } from "@/models/order-model";
 import { productModel } from "@/models/product-model";
 import { userModel } from "@/models/user-model";
 import { dbConnect } from "@/service/mongo";
@@ -138,4 +139,10 @@ export async function getAllProducts(
 export async function getProductById(id) {
   const product = await productModel.findById(id).lean();
   return transformObj(product);
+}
+
+export async function placeOrder(orderData) {
+  const product = new orderModel(orderData);
+  const response = await product.save();
+  return response;
 }

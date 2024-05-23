@@ -48,7 +48,7 @@ const RegisterForm = () => {
             <form onSubmit={onSubmit}  >
                 <div className="space-y-2">
                     <div>
-                        <label for="name" className="text-gray-600 mb-2 block">
+                        <label htmlFor="name" className="text-gray-600 mb-2 block">
                             Full Name
                         </label>
                         <input
@@ -60,7 +60,7 @@ const RegisterForm = () => {
                         />
                     </div>
                     <div>
-                        <label for="email" className="text-gray-600 mb-2 block">
+                        <label htmlFor="email" className="text-gray-600 mb-2 block">
                             Email address
                         </label>
                         <input
@@ -72,7 +72,7 @@ const RegisterForm = () => {
                         />
                     </div>
                     <div>
-                        <label for="password" className="text-gray-600 mb-2 block">
+                        <label htmlFor="password" className="text-gray-600 mb-2 block">
                             Password
                         </label>
                         <input
@@ -84,7 +84,7 @@ const RegisterForm = () => {
                         />
                     </div>
                     <div>
-                        <label for="confirm" className="text-gray-600 mb-2 block">
+                        <label htmlFor="confirm" className="text-gray-600 mb-2 block">
                             Confirm password
                         </label>
                         <input
@@ -105,7 +105,7 @@ const RegisterForm = () => {
                             id="agrement"
                             className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                         />
-                        <label for="aggrement" className="text-gray-600 ml-3 cursor-pointer">
+                        <label htmlFor="aggrement" className="text-gray-600 ml-3 cursor-pointer">
                             I have read and agree to the{" "}
                             <Link href="" className="text-primary">
                                 terms & conditions

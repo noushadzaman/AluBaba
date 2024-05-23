@@ -50,7 +50,7 @@ const Categories = () => {
                         id="cat-1"
                         className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                     />
-                    <label for="cat-1" className="text-gray-600 ml-3 cusror-pointer">
+                    <label htmlFor="cat-1" className="text-gray-600 ml-3 cusror-pointer">
                         Furniture
                     </label>
                     <div className="ml-auto text-gray-600 text-sm">(15)</div>
@@ -64,7 +64,7 @@ const Categories = () => {
                         id="cat-4"
                         className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                     />
-                    <label for="cat-4" className="text-gray-600 ml-3 cusror-pointer">
+                    <label htmlFor="cat-4" className="text-gray-600 ml-3 cusror-pointer">
                         Clothing
                     </label>
                     <div className="ml-auto text-gray-600 text-sm">(10)</div>
@@ -78,7 +78,7 @@ const Categories = () => {
                         id="cat-2"
                         className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                     />
-                    <label for="cat-2" className="text-gray-600 ml-3 cusror-pointer">
+                    <label htmlFor="cat-2" className="text-gray-600 ml-3 cusror-pointer">
                         kitchen appliance
                     </label>
                     <div className="ml-auto text-gray-600 text-sm">(9)</div>
@@ -92,7 +92,7 @@ const Categories = () => {
                         id="cat-3"
                         className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                     />
-                    <label for="cat-3" className="text-gray-600 ml-3 cusror-pointer">
+                    <label htmlFor="cat-3" className="text-gray-600 ml-3 cusror-pointer">
                         Home Electronics
                     </label>
                     <div className="ml-auto text-gray-600 text-sm">(21)</div>
@@ -106,7 +106,7 @@ const Categories = () => {
                         id="cat-4"
                         className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                     />
-                    <label for="cat-4" className="text-gray-600 ml-3 cusror-pointer">
+                    <label htmlFor="cat-4" className="text-gray-600 ml-3 cusror-pointer">
                         Phone & tablets
                     </label>
                     <div className="ml-auto text-gray-600 text-sm">(10)</div>
@@ -120,7 +120,7 @@ const Categories = () => {
                         id="cat-4"
                         className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                     />
-                    <label for="cat-4" className="text-gray-600 ml-3 cusror-pointer">
+                    <label htmlFor="cat-4" className="text-gray-600 ml-3 cusror-pointer">
                         PC & components
                     </label>
                     <div className="ml-auto text-gray-600 text-sm">(10)</div>

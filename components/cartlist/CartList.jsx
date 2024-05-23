@@ -3,8 +3,7 @@ import useCartList from "@/hooks/useCartList";
 import ProductCardTwo from "../ProductCardTwo";
 
 const CartList = () => {
-    const { cart, setCart } = useCartList();
-    console.log(cart);
+    const { cart } = useCartList();
 
     return (
         <div className="mx-auto space-y-4 max-w-6xl">

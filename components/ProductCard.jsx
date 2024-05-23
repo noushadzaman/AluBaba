@@ -1,21 +1,41 @@
+"use client";
+
+import { updateUserCart } from "@/app/actions";
+import useCartList from "@/hooks/useCartList";
+import useUser from "@/hooks/useUser";
+import { calculatePrice } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 
 const ProductCard = ({ product }) => {
+    const { cart, setCart } = useCartList();
+    const { user } = useUser();
+    const foundInCart = cart.find(cartItem => cartItem.productId === product?.id);
+
+    async function updateCart() {
+        if (foundInCart) {
+            return;
+        }
+        await updateUserCart({ userEmail: user?.email, productId: product?.id, items: 1 });
+        setCart([
+            ...cart,
+            { productId: product?.id, number: 1 }
+        ])
+    }
 
     return (
-        <div className="bg-white shadow rounded overflow-hidden group">
+        <duv className="bg-white shadow rounded overflow-hidden group relative">
             <div className="relative">
                 <Image
                     width={400}
                     height={400}
                     src={product?.thumbnail}
                     alt="product 1"
-                    className="w-full p-6"
+                    className="w-full p-6 object-contain h-[200px]"
                 />
                 <div
                     className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-                        justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
+                        justify-center gap-2 opacity-0 group-hover:opacity-100 transition rounded"
                 >
                     <a
                         href="#"
@@ -33,15 +53,23 @@ const ProductCard = ({ product }) => {
                     </a>
                 </div>
             </div>
-            <div className="pt-4 pb-3 px-4">
+            <div className="pt-4 pb-10 px-4">
                 <Link href={`/productDetails/${product?.id}`}>
-                    <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+                    <h4 className="uppercase text-nowrap font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
                         {product?.name}
                     </h4>
                 </Link>
                 <div className="flex items-baseline mb-1 space-x-2">
-                    <p className="text-xl text-primary font-semibold">$45.00</p>
-                    <p className="text-sm text-gray-400 line-through">$55.90</p>
+                    <p className="text-xl text-primary font-semibold">
+                        {
+                            calculatePrice(product?.discount, product?.price, 1)
+                        }
+                    </p>
+                    <p className="text-sm text-gray-400 line-through">
+                        {
+                            product?.price * 1
+                        }
+                    </p>
                 </div>
                 <div className="flex items-center">
                     <div className="flex gap-1 text-sm text-yellow-400">
@@ -64,13 +92,14 @@ const ProductCard = ({ product }) => {
                     <div className="text-xs text-gray-500 ml-3">(150)</div>
                 </div>
             </div>
-            <button
-                href="#"
-                className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+            <Link
+                href={foundInCart ? "" : "/cart"}
+                onClick={updateCart}
+                className={`block w-full py-1 text-center border rounded-b   transition bottom-0 absolute ${foundInCart ? "bg-gray-200 text-white" : " hover:bg-transparent border-primary hover:text-primary text-white bg-primary"}`}
             >
                 Add to cart
-            </button>
-        </div>
+            </Link>
+        </duv>
     );
 };
 

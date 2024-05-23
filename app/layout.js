@@ -9,6 +9,7 @@ import WishlistProvider from "@/providers/WishListProvider";
 import { auth } from "@/auth";
 import { getUserByEmail } from "@/database/queries";
 import CartProvider from "@/providers/CartProvider";
+import UserProvider from "@/providers/UserProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,17 +26,19 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <WishlistProvider dbWishList={user?.wishlist}>
-          <CartProvider dbCart={user?.cart_items}>
-            <Header />
-            <Nav />
-            <div style={{ minHeight: `calc(100vh - 583.42px)` }}>
-              {children}
-            </div>
-            <Footer />
-            <CopyRight />
-          </CartProvider>
-        </WishlistProvider>
+        <UserProvider dbUser={user}>
+          <WishlistProvider dbWishList={user?.wishlist}>
+            <CartProvider dbCart={user?.cart_items}>
+              <Header />
+              <Nav />
+              <div style={{ minHeight: `calc(100vh - 583.42px)` }}>
+                {children}
+              </div>
+              <Footer />
+              <CopyRight />
+            </CartProvider>
+          </WishlistProvider>
+        </UserProvider>
       </body>
     </html>
   );
