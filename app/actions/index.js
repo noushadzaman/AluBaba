@@ -1,12 +1,15 @@
 "use server";
 
 import { signIn } from "@/auth";
+import EmailTemplate from "@/components/checkout/EmailTemplate";
 import {
   addToCart,
   addToWishList,
   placeOrder,
   updateUser,
 } from "@/database/queries";
+import { createPdf } from "@/utils/pdf-utils";
+import { Resend } from "resend";
 
 async function updateUserInDB(newUser) {
   try {
@@ -47,11 +50,41 @@ async function login(formData) {
 
 async function orderProduct(orderData) {
   try {
-    const response = await placeOrder(orderData);
-    return response;
+    // const response = await placeOrder(orderData);
+    const email = await sendEmail(orderData);
+    return email;
   } catch (error) {
     throw new Error(error);
   }
 }
 
-export { updateUserInDB, login, updateUserWishList, updateUserCart, orderProduct };
+async function sendEmail(orderData) {
+  try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const { pdfBytes } = await createPdf(orderData);
+    const sent = await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: orderData?.email,
+      subject: "Purchased from LwsKart successfully",
+      react: EmailTemplate({ orderData }),
+      attachments: [
+        {
+          filename: "invoice.pdf", 
+          content: pdfBytes.toString("base64"),
+          contentType: "application/pdf", 
+        },
+      ],
+    });
+    console.log(sent);
+  } catch (error) {
+    throw error;
+  }
+}
+
+export {
+  updateUserInDB,
+  login,
+  updateUserWishList,
+  updateUserCart,
+  orderProduct,
+};

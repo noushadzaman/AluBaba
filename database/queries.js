@@ -1,13 +1,7 @@
 import { orderModel } from "@/models/order-model";
 import { productModel } from "@/models/product-model";
 import { userModel } from "@/models/user-model";
-import { dbConnect } from "@/service/mongo";
-import {
-  calculatePrice,
-  isPriceInBetween,
-  transformArray,
-  transformObj,
-} from "@/utils";
+import { calculatePrice, transformArray, transformObj } from "@/utils";
 
 export async function getUserByEmail(email) {
   const user = await userModel.findOne({ email: email }).lean();
@@ -116,7 +110,8 @@ export async function getAllProducts(
   let products = await productModel.find({ name: { $regex: regex } }).lean();
 
   if (category) {
-    const categoriesToMatch = category.split("|");
+    const categoriesToMatch = decodeURI(category).split("|");
+    console.log(categoriesToMatch);
     products = products.filter((product) =>
       categoriesToMatch.includes(product.category)
     );
