@@ -11,14 +11,14 @@
         ],
         "availability": true,
         "brand": "Apple",
-        "category": "Smartphone_and_tablets",
+        "category": "phone-and-tablets",
+        "click_count": 0,
+        "quantity": 52,
         "sku": "BE45VGRT",
         "price": 220000,
         "discount": 10,
-        "description": {
-            "description": "The iPhone 15 Pro Max takes smartphone innovation to new heights with its larger display and enhanced features. Featuring a stunning 6.7-inch Super Retina XDR display with ProMotion technology, every detail comes to life with vibrant colors and sharp contrast. Powered by the A17 Bionic chip, this device delivers lightning-fast performance and improved energy efficiency, ensuring smooth multitasking and gaming. Its sophisticated triple-camera system, including a 48MP main sensor, ultra-wide, and telephoto lenses, offers advanced photography capabilities, such as ProRAW and Night mode, for professional-grade results in any lighting condition. With 5G connectivity, all-day battery life, and a durable Ceramic Shield front cover, the iPhone 15 Pro Max is designed to keep up with your busiest days. Running on iOS 17, Apple's latest operating system, the iPhone 15 Pro Max provides a seamless and intuitive user experience, with enhanced privacy and security features. Plus, with support for MagSafe accessories, it adapts to your needs, whether you're working or playing. The iPhone 15 Pro Max isn't just a smartphone; it's a powerful tool that empowers you to do more, explore more, and create more.",
-            "short_description": "iPhone 15 Pro Max: Elevate your mobile experience with the expansive 6.7-inch Super Retina XDR display, A17 Bionic chip, and advanced triple-camera system. With 5G connectivity, all-day battery life, iOS 17, MagSafe support, and enhanced privacy features, it's the ultimate companion for everyday adventures."
-        }
+        "description": "The iPhone 15 Pro Max takes smartphone innovation to new heights with its larger display and enhanced features. Featuring a stunning 6.7-inch Super Retina XDR display with ProMotion technology, every detail comes to life with vibrant colors and sharp contrast. Powered by the A17 Bionic chip, this device delivers lightning-fast performance and improved energy efficiency, ensuring smooth multitasking and gaming. Its sophisticated triple-camera system, including a 48MP main sensor, ultra-wide, and telephoto lenses, offers advanced photography capabilities, such as ProRAW and Night mode, for professional-grade results in any lighting condition. With 5G connectivity, all-day battery life, and a durable Ceramic Shield front cover, the iPhone 15 Pro Max is designed to keep up with your busiest days. Running on iOS 17, Apple's latest operating system, the iPhone 15 Pro Max provides a seamless and intuitive user experience, with enhanced privacy and security features. Plus, with support for MagSafe accessories, it adapts to your needs, whether you're working or playing. The iPhone 15 Pro Max isn't just a smartphone; it's a powerful tool that empowers you to do more, explore more, and create more.",
+        "short_description": "iPhone 15 Pro Max: Elevate your mobile experience with the expansive 6.7-inch Super Retina XDR display, A17 Bionic chip, and advanced triple-camera system. With 5G connectivity, all-day battery life, iOS 17, MagSafe support, and enhanced privacy features, it's the ultimate companion for everyday adventures."
     },
     {
         "name": "Iphone 15 pro",
@@ -32,14 +32,14 @@
         ],
         "availability": true,
         "brand": "Apple",
-        "category": "Smartphone_and_tablets",
+        "category": "phone-and-tablets",
+        "click_count": 0,
+        "quantity": 54,
         "sku": "BEFASRT",
         "price": 190000,
         "discount": 10,
-        "description": {
-            "description": "The iPhone 15 Pro sets the standard for premium smartphones with its stunning design and cutting-edge features. Sporting a gorgeous 6.1-inch Super Retina XDR display with ProMotion technology, every interaction feels smooth and responsive. Powered by the A17 Bionic chip, this device delivers blazing-fast performance and improved energy efficiency, ensuring seamless multitasking and gaming.Its advanced triple-camera system, including a 48MP main sensor, ultra-wide, and telephoto lenses, elevates your photography experience to new heights, with features like ProRAW and Night mode for professional-grade results. With 5G connectivity, all-day battery life, and a durable Ceramic Shield front cover, the iPhone 15 Pro is designed to keep up with your busy lifestyle.Running on iOS 17, Apple's latest operating system, the iPhone 15 Pro offers a seamless and intuitive user experience, with features like enhanced privacy and security settings. Plus, with support for MagSafe accessories, it adapts to your needs, whether you're at work or play. The iPhone 15 Pro is more than just a smartphone; it's a companion that empowers you to do more, explore more, and create more.",
-            "short_description": "iPhone 15 Pro: Experience excellence with the stunning 6.1-inch Super Retina XDR display, A17 Bionic chip, and advanced triple-camera system. With 5G connectivity, all-day battery life, iOS 17, MagSafe support, and enhanced privacy features, it's the ultimate smartphone for everyday use."
-        }
+        "description": "The iPhone 15 Pro sets the standard for premium smartphones with its stunning design and cutting-edge features. Sporting a gorgeous 6.1-inch Super Retina XDR display with ProMotion technology, every interaction feels smooth and responsive. Powered by the A17 Bionic chip, this device delivers blazing-fast performance and improved energy efficiency, ensuring seamless multitasking and gaming.Its advanced triple-camera system, including a 48MP main sensor, ultra-wide, and telephoto lenses, elevates your photography experience to new heights, with features like ProRAW and Night mode for professional-grade results. With 5G connectivity, all-day battery life, and a durable Ceramic Shield front cover, the iPhone 15 Pro is designed to keep up with your busy lifestyle.Running on iOS 17, Apple's latest operating system, the iPhone 15 Pro offers a seamless and intuitive user experience, with features like enhanced privacy and security settings. Plus, with support for MagSafe accessories, it adapts to your needs, whether you're at work or play. The iPhone 15 Pro is more than just a smartphone; it's a companion that empowers you to do more, explore more, and create more.",
+        "short_description": "iPhone 15 Pro: Experience excellence with the stunning 6.1-inch Super Retina XDR display, A17 Bionic chip, and advanced triple-camera system. With 5G connectivity, all-day battery life, iOS 17, MagSafe support, and enhanced privacy features, it's the ultimate smartphone for everyday use."
     },
     {
         "name": "Pocophone F1",
@@ -51,14 +51,14 @@
         ],
         "availability": false,
         "brand": "Xiaomi",
-        "category": "Smartphone_and_tablets",
+        "category": "phone-and-tablets",
+        "click_count": 0,
+        "quantity": 0,
         "sku": "BE45VGRT",
         "price": 30000,
         "discount": 10,
-        "description": {
-            "description": "The Pocophone F1 is a budget-friendly powerhouse, featuring a vibrant 6.18-inch IPS LCD display and the powerful Snapdragon 845 processor for smooth performance. Whether you're gaming, streaming content, or multitasking, the Pocophone F1 delivers a fast and fluid experience. But the Pocophone F1 is more than just a performance beast; it's a photography powerhouse too. With its dual-camera system, you can capture stunning photos and videos with ease. Plus, with features like AI scene detection and Portrait mode, you can take your photography to the next level. With fast charging support, you can quickly recharge your device and get back to what you love. Whether you're on the go or at home, the Pocophone F1 keeps up with your busy lifestyle.Running on MIUI, Xiaomi's intuitive user interface, the Pocophone F1 offers a smooth and intuitive user experience, with features like App Vault for easy access to your favorite apps and tools. Plus, with support for dual SIM cards, you can stay connected wherever you go.",
-            "short_description": "Pocophone F1: Experience power and affordability with the vibrant 6.18-inch IPS LCD display, Snapdragon 845 processor, and dual-camera system. With fast charging support, MIUI, and dual SIM capability, it's the ultimate smartphone for everyday use."
-        }
+        "description": "The Pocophone F1 is a budget-friendly powerhouse, featuring a vibrant 6.18-inch IPS LCD display and the powerful Snapdragon 845 processor for smooth performance. Whether you're gaming, streaming content, or multitasking, the Pocophone F1 delivers a fast and fluid experience. But the Pocophone F1 is more than just a performance beast; it's a photography powerhouse too. With its dual-camera system, you can capture stunning photos and videos with ease. Plus, with features like AI scene detection and Portrait mode, you can take your photography to the next level. With fast charging support, you can quickly recharge your device and get back to what you love. Whether you're on the go or at home, the Pocophone F1 keeps up with your busy lifestyle.Running on MIUI, Xiaomi's intuitive user interface, the Pocophone F1 offers a smooth and intuitive user experience, with features like App Vault for easy access to your favorite apps and tools. Plus, with support for dual SIM cards, you can stay connected wherever you go.",
+        "short_description": "Pocophone F1: Experience power and affordability with the vibrant 6.18-inch IPS LCD display, Snapdragon 845 processor, and dual-camera system. With fast charging support, MIUI, and dual SIM capability, it's the ultimate smartphone for everyday use."
     },
     {
         "name": "Iphone 15",
@@ -72,14 +72,14 @@
         ],
         "availability": true,
         "brand": "Apple",
-        "category": "Smartphone_and_tablets",
+        "category": "phone-and-tablets",
+        "click_count": 0,
+        "quantity": 72,
         "sku": "BE45VGRT",
         "price": 2000,
         "discount": 10,
-        "description": {
-            "description": "The iPhone 15 sets the standard for excellence in smartphone technology. Its vibrant 6.1-inch Super Retina XDR display delivers stunning visuals, while the powerful A17 Bionic chip ensures seamless performance for all your tasks. With a dual-camera system, including a 12MP main sensor and ultra-wide lens, capturing breathtaking photos and videos has never been easier. Plus, with features like Night mode and Smart HDR, your shots are always crisp and clear, even in low-light conditions.But the iPhone 15 is more than just a camera and performance powerhouse; it's also built for connectivity and convenience. With 5G support, you can download, stream, and browse the web at lightning-fast speeds, while the all-day battery life keeps you powered up throughout your busy day. Running on iOS 17, Apple's latest operating system, the iPhone 15 offers a seamless and intuitive user experience, with features like Siri and Face ID making everyday tasks effortless. Additionally, the iPhone 15 supports MagSafe accessories, allowing you to personalize and enhance your device to suit your lifestyle. With advanced privacy features built-in, you can trust that your personal information is safe and secure. Whether you're working, playing, or staying connected with loved ones, the iPhone 15 is designed to meet your every need.",
-            "short_description": "iPhone 15: Elevate your smartphone experience with the vibrant 6.1-inch Super Retina XDR display, A17 Bionic chip, and advanced dual-camera system. With 5G connectivity, all-day battery life, iOS 17, and support for MagSafe accessories, it's the perfect companion for your daily adventures."
-        }
+        "description": "The iPhone 15 sets the standard for excellence in smartphone technology. Its vibrant 6.1-inch Super Retina XDR display delivers stunning visuals, while the powerful A17 Bionic chip ensures seamless performance for all your tasks. With a dual-camera system, including a 12MP main sensor and ultra-wide lens, capturing breathtaking photos and videos has never been easier. Plus, with features like Night mode and Smart HDR, your shots are always crisp and clear, even in low-light conditions.But the iPhone 15 is more than just a camera and performance powerhouse; it's also built for connectivity and convenience. With 5G support, you can download, stream, and browse the web at lightning-fast speeds, while the all-day battery life keeps you powered up throughout your busy day. Running on iOS 17, Apple's latest operating system, the iPhone 15 offers a seamless and intuitive user experience, with features like Siri and Face ID making everyday tasks effortless. Additionally, the iPhone 15 supports MagSafe accessories, allowing you to personalize and enhance your device to suit your lifestyle. With advanced privacy features built-in, you can trust that your personal information is safe and secure. Whether you're working, playing, or staying connected with loved ones, the iPhone 15 is designed to meet your every need.",
+        "short_description": "iPhone 15: Elevate your smartphone experience with the vibrant 6.1-inch Super Retina XDR display, A17 Bionic chip, and advanced dual-camera system. With 5G connectivity, all-day battery life, iOS 17, and support for MagSafe accessories, it's the perfect companion for your daily adventures."
     },
     {
         "name": "Samsung Z Fold 5",
@@ -91,17 +91,17 @@
         ],
         "availability": true,
         "brand": "Samsung",
-        "category": "Smartphone_and_tablets",
+        "category": "phone-and-tablets",
+        "click_count": 0,
+        "quantity": 0,
         "sku": "BE45VGRT",
         "price": 120000,
         "discount": 10,
-        "description": {
-            "description": "The Samsung Z Fold 5 is a groundbreaking foldable smartphone that redefines what's possible in mobile technology. Its innovative design features a flexible 7.6-inch Dynamic AMOLED display that unfolds to reveal a larger screen, perfect for multitasking and productivity. Powered by a high-performance Snapdragon processor, this device offers lightning-fast performance and incredible energy efficiency, ensuring that you can do more with less.With a versatile triple-camera system, including a 108MP main sensor, the Samsung Z Fold 5 captures stunning photos and videos with incredible detail and clarity. Plus, with features like Pro mode and Director's View, you can take your photography to the next level. With support for 5G connectivity, you can download, stream, and browse the web at blazing-fast speeds, while the all-day battery life keeps you powered up throughout your day.Running on the latest version of Samsung's One UI, the Samsung Z Fold 5 offers a seamless and intuitive user experience, with features like Samsung DeX and Knox security keeping your data safe and secure. Plus, with support for wireless charging and Samsung Pay, it's more convenient than ever to stay connected and productive on the go. Whether you're working, playing, or staying connected with loved ones, the Samsung Z Fold 5 is the perfect companion for your digital lifestyle.",
-            "short_description": "Samsung Z Fold 5: Experience the future of smartphone technology with the flexible 7.6-inch Dynamic AMOLED display, Snapdragon processor, triple-camera system, 5G connectivity, all-day battery life, and Samsung One UI. It's the ultimate companion for your digital lifestyle."
-        }
+        "description": "The Samsung Z Fold 5 is a groundbreaking foldable smartphone that redefines what's possible in mobile technology. Its innovative design features a flexible 7.6-inch Dynamic AMOLED display that unfolds to reveal a larger screen, perfect for multitasking and productivity. Powered by a high-performance Snapdragon processor, this device offers lightning-fast performance and incredible energy efficiency, ensuring that you can do more with less.With a versatile triple-camera system, including a 108MP main sensor, the Samsung Z Fold 5 captures stunning photos and videos with incredible detail and clarity. Plus, with features like Pro mode and Director's View, you can take your photography to the next level. With support for 5G connectivity, you can download, stream, and browse the web at blazing-fast speeds, while the all-day battery life keeps you powered up throughout your day.Running on the latest version of Samsung's One UI, the Samsung Z Fold 5 offers a seamless and intuitive user experience, with features like Samsung DeX and Knox security keeping your data safe and secure. Plus, with support for wireless charging and Samsung Pay, it's more convenient than ever to stay connected and productive on the go. Whether you're working, playing, or staying connected with loved ones, the Samsung Z Fold 5 is the perfect companion for your digital lifestyle.",
+        "short_description": "Samsung Z Fold 5: Experience the future of smartphone technology with the flexible 7.6-inch Dynamic AMOLED display, Snapdragon processor, triple-camera system, 5G connectivity, all-day battery life, and Samsung One UI. It's the ultimate companion for your digital lifestyle."
     },
     {
-        "name": "ITALIAN L SHAPE SOFA4",
+        "name": "Samsung S24 ultra",
         "thumbnail": "https://i.ibb.co/7YYNZPG/samsung-galaxy-s24-ultra-5g-sm-s928-0.jpg",
         "images": [
             "https://i.ibb.co/JmXnfrm/samsung-galaxy-s24-ultra-5g-sm-s928-1.jpg",
@@ -111,14 +111,14 @@
         ],
         "availability": true,
         "brand": "Samsung",
-        "category": "Smartphone_and_tablets",
+        "category": "phone-and-tablets",
+        "click_count": 0,
+        "quantity": 42,
         "sku": "BE45VGRT",
         "price": 200000,
         "discount": 10,
-        "description": {
-            "description": "The Samsung Galaxy S24 Ultra redefines what a smartphone can be, with its stunning design and powerful performance. Its expansive 6.8-inch Dynamic AMOLED display delivers breathtaking visuals, whether you're watching videos, playing games, or browsing the web. Powered by the latest Exynos processor, this device offers lightning-fast performance and incredible energy efficiency, ensuring that you can do more with less. With a quad-camera system, including a 108MP main sensor, the Samsung Galaxy S24 Ultra captures stunning photos and videos with incredible detail and clarity. Plus, with features like Night mode and Pro mode, you can take your photography to the next level. With support for 5G connectivity, you can download, stream, and browse the web at blazing-fast speeds, while the all-day battery life keeps you powered up throughout your day. Running on the latest version of Samsung's One UI, the Samsung Galaxy S24 Ultra offers a seamless and intuitive user experience, with features like Samsung DeX and Knox security keeping your data safe and secure. Plus, with support for wireless charging and Samsung Pay, it's more convenient than ever to stay connected and productive on the go. Whether you're working, playing, or staying connected with loved ones, the Samsung Galaxy S24 Ultra is the perfect companion for your digital lifestyle.",
-            "short_description": "Samsung Galaxy S24 Ultra: Experience the future of smartphone technology with the stunning 6.8-inch Dynamic AMOLED display, Exynos processor, quad-camera system, 5G connectivity, all-day battery life, and Samsung One UI. It's the ultimate companion for your digital lifestyle."
-        }
+        "description": "The Samsung Galaxy S24 Ultra redefines what a smartphone can be, with its stunning design and powerful performance. Its expansive 6.8-inch Dynamic AMOLED display delivers breathtaking visuals, whether you're watching videos, playing games, or browsing the web. Powered by the latest Exynos processor, this device offers lightning-fast performance and incredible energy efficiency, ensuring that you can do more with less. With a quad-camera system, including a 108MP main sensor, the Samsung Galaxy S24 Ultra captures stunning photos and videos with incredible detail and clarity. Plus, with features like Night mode and Pro mode, you can take your photography to the next level. With support for 5G connectivity, you can download, stream, and browse the web at blazing-fast speeds, while the all-day battery life keeps you powered up throughout your day. Running on the latest version of Samsung's One UI, the Samsung Galaxy S24 Ultra offers a seamless and intuitive user experience, with features like Samsung DeX and Knox security keeping your data safe and secure. Plus, with support for wireless charging and Samsung Pay, it's more convenient than ever to stay connected and productive on the go. Whether you're working, playing, or staying connected with loved ones, the Samsung Galaxy S24 Ultra is the perfect companion for your digital lifestyle.",
+        "short_description": "Samsung Galaxy S24 Ultra: Experience the future of smartphone technology with the stunning 6.8-inch Dynamic AMOLED display, Exynos processor, quad-camera system, 5G connectivity, all-day battery life, and Samsung One UI. It's the ultimate companion for your digital lifestyle."
     },
     {
         "name": "Ipad 13 pro",
@@ -130,13 +130,13 @@
         ],
         "availability": true,
         "brand": "Apple",
-        "category": "Smartphone_and_tablets",
+        "category": "phone-and-tablets",
+        "click_count": 0,
+        "quantity": 102,
         "sku": "BE45VGRT",
         "price": 100000,
         "discount": 10,
-        "description": {
-            "description": "The iPad 13 Pro is a powerhouse of creativity and productivity, designed to take your digital experience to the next level. Its stunning 12.9-inch Liquid Retina XDR display brings your content to life with vibrant colors and crisp details, making it perfect for everything from photo editing to watching movies. Powered by the A15 Bionic chip, this device offers blazing-fast performance and incredible energy efficiency, allowing you to multitask with ease. With support for Apple Pencil and Magic Keyboard, the iPad 13 Pro transforms into a versatile tool for work and creativity. Whether you're sketching ideas, writing notes, or typing up reports, the iPad 13 Pro adapts to your needs. Plus, with advanced cameras, including a 12MP Ultra Wide front camera and a 12MP Wide rear camera, you can capture stunning photos and videos wherever you go. But the iPad 13 Pro is more than just a powerful tablet; it's also built for connectivity and convenience. With 5G support, you can stay connected on the go, while the all-day battery life ensures that you can work and play for hours on end. Running on iPadOS 15, Apple's latest operating system, the iPad 13 Pro offers a seamless and intuitive user experience, with features like Split View and Slide Over making multitasking a breeze.",
-            "short_description": "iPad 13 Pro: Unleash your creativity with the stunning 12.9-inch Liquid Retina XDR display, A15 Bionic chip, and support for Apple Pencil and Magic Keyboard. With advanced cameras, 5G connectivity, all-day battery life, and iPadOS 15, it's the ultimate tool for work and play."
-        }
+        "description": "The iPad 13 Pro is a powerhouse of creativity and productivity, designed to take your digital experience to the next level. Its stunning 12.9-inch Liquid Retina XDR display brings your content to life with vibrant colors and crisp details, making it perfect for everything from photo editing to watching movies. Powered by the A15 Bionic chip, this device offers blazing-fast performance and incredible energy efficiency, allowing you to multitask with ease. With support for Apple Pencil and Magic Keyboard, the iPad 13 Pro transforms into a versatile tool for work and creativity. Whether you're sketching ideas, writing notes, or typing up reports, the iPad 13 Pro adapts to your needs. Plus, with advanced cameras, including a 12MP Ultra Wide front camera and a 12MP Wide rear camera, you can capture stunning photos and videos wherever you go. But the iPad 13 Pro is more than just a powerful tablet; it's also built for connectivity and convenience. With 5G support, you can stay connected on the go, while the all-day battery life ensures that you can work and play for hours on end. Running on iPadOS 15, Apple's latest operating system, the iPad 13 Pro offers a seamless and intuitive user experience, with features like Split View and Slide Over making multitasking a breeze.",
+        "short_description": "iPad 13 Pro: Unleash your creativity with the stunning 12.9-inch Liquid Retina XDR display, A15 Bionic chip, and support for Apple Pencil and Magic Keyboard. With advanced cameras, 5G connectivity, all-day battery life, and iPadOS 15, it's the ultimate tool for work and play."
     }
 ]

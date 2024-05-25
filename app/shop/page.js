@@ -15,7 +15,7 @@ export default async function ShopPage({
 
   return (
     <div className="container grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 pb-16 items-start">
-      <Filter category={category} />
+      <Filter categoryExist={decodeURI(category).split("|")} />
       <div className="col-span-3">
         <div className="grid md:grid-cols-3 grid-cols-2 gap-6">
           {products.map((product) => (

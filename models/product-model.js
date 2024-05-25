@@ -21,6 +21,14 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+  click_count: {
+    type: Number,
+    required: true,
+  },
   sku: {
     type: String,
     required: true,
@@ -37,7 +45,7 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
-  detailed_description: {
+  short_description: {
     type: String,
     required: true,
   },

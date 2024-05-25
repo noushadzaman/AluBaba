@@ -5,13 +5,15 @@ import SingleOrder from "./singleOrder";
 import { useState } from "react";
 import { orderProduct } from "@/app/actions";
 import { createPdf } from "@/utils/pdf-utils";
+import useUser from "@/hooks/useUser";
 
 
 const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
+    const { user } = useUser();
     const [subTotal, setSubTotal] = useState(0);
     const [products, setProducts] = useState([]);
     const [downloadUrl, setDownloadUrl] = useState();
-    const { cart } = useCartList();
+    const { cart, setCart } = useCartList();
 
     function handlePlaceOrder(event) {
         event.preventDefault()
@@ -22,18 +24,23 @@ const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
             const orderData =
             {
                 ...userData,
-                products
+                products,
+                subTotal: subTotal,
+                date: new Date(),
             }
             try {
-                const { url } = await createPdf(orderData);
-                await orderProduct(orderData);
-                setDownloadUrl(url);
                 // setTimeout(() => {
-                //     URL.revokeObjectURL(response);
+                // URL.revokeObjectURL(url);
                 // }, 0);
+                const { url } = await createPdf(orderData);
+                setDownloadUrl(url);
+                await orderProduct(orderData, user?.email);
             }
             catch (error) {
                 console.log(error);
+            }
+            finally {
+                setCart([]); 
             }
         }
         fetchOrder();
@@ -93,23 +100,30 @@ const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
             </div>
             {
                 downloadUrl ?
-                    <a
-                        target="_blank"
-                        href={downloadUrl}
-                        className="block w-full py-3 px-4 text-center text-white bg-[purple] border border-[purple] rounded-md  hover:text-[plum] font-medium"
-                    >
-                        See you invoice
-                    </a>
+                    <div className="flex gap-5 justify-center items-center">
+                        <a
+                            target="_blank"
+                            href={downloadUrl}
+                            className="block w-[45%] py-3 px-4 text-center text-white bg-[purple] border border-[purple] rounded-md  hover:text-[plum] font-medium"
+                        >
+                            See
+                        </a>
+                        <a
+                            target="_blank"
+                            href={downloadUrl}
+                            className="block w-[45%] py-3 px-4 text-center text-white bg-[purple] border border-[purple] rounded-md  hover:text-[plum] font-medium"
+                            download={"Invoice.pdf"}
+                        >
+                            Download
+                        </a>
+                    </div>
                     : <button
                         type="submit"
-                        // href="#"
                         className="block w-full py-3 px-4 text-center text-white bg-primary border border-primary rounded-md hover:bg-transparent hover:text-primary transition font-medium"
                     >
                         Place order
                     </button>
             }
-
-
         </form>
     );
 };

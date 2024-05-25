@@ -5,6 +5,7 @@ import EmailTemplate from "@/components/checkout/EmailTemplate";
 import {
   addToCart,
   addToWishList,
+  clickCount,
   placeOrder,
   updateUser,
 } from "@/database/queries";
@@ -35,6 +36,15 @@ async function updateUserCart({ userEmail, productId, items }) {
   }
 }
 
+async function increaseClickCount(productId) {
+  console.log(productId);
+  try {
+    await clickCount(productId);
+  } catch (error) {
+    console.log(error);
+  }
+} 
+
 async function login(formData) {
   try {
     const response = await signIn("credentials", {
@@ -48,11 +58,11 @@ async function login(formData) {
   }
 }
 
-async function orderProduct(orderData) {
+async function orderProduct(orderData, email) {
   try {
-    // const response = await placeOrder(orderData);
-    const email = await sendEmail(orderData);
-    return email;
+    const response = await placeOrder(orderData, email);
+    const emailRes = await sendEmail(orderData);
+    return response;
   } catch (error) {
     throw new Error(error);
   }
@@ -69,13 +79,12 @@ async function sendEmail(orderData) {
       react: EmailTemplate({ orderData }),
       attachments: [
         {
-          filename: "invoice.pdf", 
+          filename: "Invoice.pdf",
           content: pdfBytes.toString("base64"),
-          contentType: "application/pdf", 
+          contentType: "application/pdf",
         },
       ],
     });
-    console.log(sent);
   } catch (error) {
     throw error;
   }
@@ -86,5 +95,6 @@ export {
   login,
   updateUserWishList,
   updateUserCart,
+  increaseClickCount,
   orderProduct,
 };

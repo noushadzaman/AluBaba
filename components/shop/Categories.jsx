@@ -3,8 +3,8 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const Categories = () => {
-    const [category, setCategory] = useState([]);
+const Categories = ({ categoryExist }) => {
+    const [category, setCategory] = useState(categoryExist || []);
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
     const { replace } = useRouter();
@@ -44,6 +44,7 @@ const Categories = () => {
                 <div className="flex items-center">
                     <input
                         onChange={onChange}
+                        checked={category.find(cat => cat === "furniture")}
                         value="furniture"
                         type="checkbox"
                         name="cat-1"
@@ -58,6 +59,7 @@ const Categories = () => {
                 <div className="flex items-center">
                     <input
                         onChange={onChange}
+                        checked={category.find(cat => cat === "clothing")}
                         value="clothing"
                         type="checkbox"
                         name="cat-4"
@@ -72,6 +74,7 @@ const Categories = () => {
                 <div className="flex items-center">
                     <input
                         onChange={onChange}
+                        checked={category.find(cat => cat === "kitchen-appliance")}
                         value="kitchen-appliance"
                         type="checkbox"
                         name="cat-2"
@@ -86,6 +89,7 @@ const Categories = () => {
                 <div className="flex items-center">
                     <input
                         onChange={onChange}
+                        checked={category.find(cat => cat === "home-electronics")}
                         value="home-electronics"
                         type="checkbox"
                         name="cat-3"
@@ -100,6 +104,7 @@ const Categories = () => {
                 <div className="flex items-center">
                     <input
                         onChange={onChange}
+                        checked={category.find(cat => cat === "phone-and-tablets")}
                         value="phone-and-tablets"
                         type="checkbox"
                         name="cat-4"
@@ -114,6 +119,7 @@ const Categories = () => {
                 <div className="flex items-center">
                     <input
                         onChange={onChange}
+                        checked={category.find(cat => cat === "pc-and-components")}
                         value="pc-and-components"
                         type="checkbox"
                         name="cat-4"

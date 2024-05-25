@@ -16,6 +16,7 @@ export async function createPdf(orderData) {
     phoneNumber,
     products,
     streetAddress,
+    subTotal,
   } = orderData;
 
   page.drawText(`LWSKart Invoice`, {
@@ -92,6 +93,13 @@ export async function createPdf(orderData) {
       })
     )
   );
+  page.drawText(`Total: ${subTotal}`, {
+    x: 50,
+    y: height - 50 * fontSize,
+    size: fontSize,
+    font: HelveticaBoldOblique,
+    color: rgb(0, 0.2, 0.4),
+  });
 
   const pdfBytes = await pdfDoc.save();
   const blob = new Blob([pdfBytes], { type: "application/pdf" });

@@ -1,6 +1,6 @@
 "use client";
 
-import { updateUserCart } from "@/app/actions";
+import { updateUserCart, increaseClickCount } from "@/app/actions";
 import useCartList from "@/hooks/useCartList";
 import useUser from "@/hooks/useUser";
 import { calculatePrice } from "@/utils";
@@ -11,6 +11,11 @@ const ProductCard = ({ product }) => {
     const { cart, setCart } = useCartList();
     const { user } = useUser();
     const foundInCart = cart.find(cartItem => cartItem.productId === product?.id);
+
+    async function clickCount() {
+        // console.log(product?.id);
+        await increaseClickCount(product?.id);
+    }
 
     async function updateCart() {
         if (foundInCart) {
@@ -54,7 +59,9 @@ const ProductCard = ({ product }) => {
                 </div>
             </div>
             <div className="pt-4 pb-10 px-4">
-                <Link href={`/productDetails/${product?.id}`}>
+                <Link
+                    onClick={clickCount}
+                    href={`/productDetails/${product?.id}`}>
                     <h4 className="uppercase text-nowrap font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
                         {product?.name}
                     </h4>

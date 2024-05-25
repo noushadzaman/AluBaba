@@ -86,7 +86,7 @@ const AddToCartAndWishList = ({ product, userEmail }) => {
                 }
             </div>
             <p className="mt-4 text-gray-600">
-                {product?.description?.short_description}
+                {product?.short_description}
             </p>
             <div className="mt-4">
                 <h3 className="text-sm text-gray-800 uppercase mb-1">Quantity</h3>

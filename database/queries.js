@@ -55,6 +55,18 @@ export async function addToWishList(userEmail, productId) {
 
 export async function addToCart(userEmail, productId, items) {
   try {
+    const product = await productModel.findById(productId);
+    if (product) {
+      const newQuantity = product.quantity - items;
+      product.quantity = newQuantity;
+      await product.save();
+    } else {
+      console.log("Product not found");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+  try {
     const user = await userModel.findOne({ email: userEmail });
     if (user) {
       if (!user.cart_items) {
@@ -107,15 +119,18 @@ export async function getAllProducts(
   size
 ) {
   const regex = new RegExp(product, "i");
-  let products = await productModel.find({ name: { $regex: regex } }).lean();
+  let products = await productModel
+    .find({ name: { $regex: regex } })
+    .select(["name", "thumbnail", "price", "discount", "category", "size"])
+    .lean();
 
   if (category) {
     const categoriesToMatch = decodeURI(category).split("|");
-    console.log(categoriesToMatch);
     products = products.filter((product) =>
       categoriesToMatch.includes(product.category)
     );
   }
+
   if (min_price && max_price) {
     products = products.filter((product) => {
       return (
@@ -136,8 +151,29 @@ export async function getProductById(id) {
   return transformObj(product);
 }
 
-export async function placeOrder(orderData) {
+export async function placeOrder(orderData, email) {
   const product = new orderModel(orderData);
   const response = await product.save();
+  const user = await userModel.findOne({ email: email });
+  if (user) {
+    user.cart_items = [];
+    await user.save();
+  }
   return response;
+}
+
+export async function clickCount(productId) {
+  const product = await productModel.findById(productId);
+  product.click_count = product.click_count + 1;
+  const response = await product.save();
+  return response;
+}
+
+export async function getTrendingProduct() {
+  const products = await productModel
+    .find({ click_count: { $exists: true, $ne: 0 } })
+    .sort({ click_count: -1 })
+    .limit(8)
+    .lean();
+  return transformArray(products);
 }

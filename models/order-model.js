@@ -37,6 +37,10 @@ const orderSchema = new Schema({
     type: String,
     required: true,
   },
+  subTotal: {
+    type: Number,
+    required: true,
+  },
 });
 
 export const orderModel =
