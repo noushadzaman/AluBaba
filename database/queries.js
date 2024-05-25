@@ -177,3 +177,8 @@ export async function getTrendingProduct() {
     .lean();
   return transformArray(products);
 }
+
+export async function getNewArrivalProducts() {
+  const products = await productModel.find().sort({ date: -1 }).limit(4).lean();
+  return transformArray(products);
+}

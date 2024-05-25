@@ -4,7 +4,7 @@ const CopyRight = () => {
     return (
         <div className="bg-gray-800 py-4">
             <div className="container flex items-center justify-between">
-                <p className="text-white">&copy; AluBaba - All Right Reserved</p>
+                <p className="text-white">&copy; LWSKart - All Right Reserved</p>
                 <div>
                     <Image
                         height={50}

@@ -3,7 +3,6 @@ import ProductCard from "../ProductCard";
 
 const TrendingProducts = async () => {
     const products = await getTrendingProduct();
-    console.log(products);
 
     return (
         <div className="container pb-16">

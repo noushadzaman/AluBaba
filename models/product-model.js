@@ -6,7 +6,7 @@ const productSchema = new Schema({
     required: true,
   },
   images: {
-    type: Array,
+    type: [String],
     required: true,
   },
   availability: {
@@ -21,6 +21,11 @@ const productSchema = new Schema({
     type: String,
     required: true,
   },
+  date: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
   quantity: {
     type: Number,
     required: true,
@@ -28,6 +33,7 @@ const productSchema = new Schema({
   click_count: {
     type: Number,
     required: true,
+    default: 0,
   },
   sku: {
     type: String,
