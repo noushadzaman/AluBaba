@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Clothing",
+        "img": "https://i.ibb.co/KrQLkg3/keagan-henman-Won79-9o-UEk-unsplash.jpg",
+        "category": "clothing"
+    },
+    {
+        "name": "Furniture",
+        "img": "https://i.ibb.co/cx9Ftg2/view-romantic-castle-bedroom-1.jpg",
+        "category": "furniture"
+    },
+    {
+        "name": "Pc & components",
+        "img": "https://i.ibb.co/WnvSmSM/jannis-brandt-4m-Ha-SX8zv-JI-unsplash.jpg",
+        "category": "pc-and-components"
+    },
+    {
+        "name": "kitchen appliances",
+        "img": "https://i.ibb.co/V2SNwgQ/clay-elliot-1by-Gbw-EMwc-unsplash.jpg",
+        "category": "kitchen-appliances"
+    },
+    {
+        "name": "Phone and tablets",
+        "img": "https://i.ibb.co/qDQrq96/the-halal-design-studio-o3f-Cl-Cyh-FUY-unsplash.jpg",
+        "category": "phone-and-tablets"
+    },
+    {
+        "name": "Home electronics",
+        "img": "https://i.ibb.co/MCthbYN/point3d-commercial-imaging-ltd-0dj9-V9s-R9c-unsplash-1.jpg",
+        "category": "home-electronics"
+    }
+]

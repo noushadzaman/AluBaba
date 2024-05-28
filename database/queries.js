@@ -1,3 +1,4 @@
+import { categoryModel } from "@/models/category-model";
 import { orderModel } from "@/models/order-model";
 import { productModel } from "@/models/product-model";
 import { userModel } from "@/models/user-model";
@@ -180,5 +181,19 @@ export async function getTrendingProduct() {
 
 export async function getNewArrivalProducts() {
   const products = await productModel.find().sort({ date: -1 }).limit(4).lean();
+  return transformArray(products);
+}
+
+export async function getCategories() {
+  const categories = await categoryModel.find().lean();
+  return transformArray(categories);
+}
+
+export async function getRelatedProducts(category) {
+  let products = await productModel
+    .find({ category: category })
+    .select(["name", "thumbnail", "price", "discount", "category", "size"])
+    .limit(4)
+    .lean();
   return transformArray(products);
 }

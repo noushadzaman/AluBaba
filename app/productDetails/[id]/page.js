@@ -11,10 +11,10 @@ export default async function page({ params: { id } }) {
     <>
       <div className="container grid grid-cols-2 gap-6">
         <ProductGallery gallery={product?.images} />
-        <ProductInfo product={product}/>
+        <ProductInfo product={product} />
       </div>
       <Description description={product?.description} />
-      <RelatedProducts />
+      <RelatedProducts category={product?.category} />
     </>
   );
 }
