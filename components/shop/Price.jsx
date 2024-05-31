@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const Price = () => {
+const Price = ({ dict }) => {
     const [priceRange, setPriceRange] = useState({
         minPrice: 0,
         maxPrice: 0
@@ -32,7 +32,7 @@ const Price = () => {
     return (
         <div className="pt-4">
             <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
-                Price
+                {dict.price}
             </h3>
             <div className="mt-4 flex items-center">
                 <input

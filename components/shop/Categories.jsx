@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const Categories = ({ categoryExist }) => {
+const Categories = ({ categoryExist, dict }) => {
     const [category, setCategory] = useState(categoryExist || []);
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
@@ -38,7 +38,7 @@ const Categories = ({ categoryExist }) => {
     return (
         <div>
             <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
-                Categories
+                {dict.categories}
             </h3>
             <form className="space-y-2">
                 <div className="flex items-center">

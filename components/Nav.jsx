@@ -2,9 +2,12 @@ import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
 import Logout from "./auth/Logout";
+import { getDictionary } from "@/app/[lang]/dictionaries";
 
-const Nav = async () => {
+const Nav = async ({ lang }) => {
     const session = await auth();
+    const dictionary = await getDictionary(lang);
+    console.log(lang);
 
     return (
         <nav className="bg-gray-800">
@@ -82,18 +85,18 @@ const Nav = async () => {
 
                 <div className="flex items-center justify-between flex-grow md:pl-12 py-5">
                     <div className="flex items-center space-x-6 capitalize">
-                        <Link href="/" className="text-gray-200 hover:text-white transition">Home</Link>
-                        <Link href="/shop" className="text-gray-200 hover:text-white transition">Shop</Link>
-                        <Link href="/checkout"  className="text-gray-200 hover:text-white transition">Checklist</Link>
-                        <Link href="/checkout" className="text-gray-200 hover:text-white transition">Contact us</Link>
+                        <Link href="/" className="text-gray-200 hover:text-white transition">{dictionary?.home}</Link>
+                        <Link href="/shop" className="text-gray-200 hover:text-white transition">{dictionary.shop}</Link>
+                        <Link href="/checkout" className="text-gray-200 hover:text-white transition">{dictionary.checklist}</Link>
+                        <Link href="/checkout" className="text-gray-200 hover:text-white transition">{dictionary.contact_us}</Link>
                     </div>
                     {
                         session?.user ?
-                            <Logout />
+                            <Logout logout={dictionary.log_out} />
                             : <Link
                                 href="/login"
                                 className="text-gray-200 hover:text-white transition"
-                            >Login</Link>
+                            >{dictionary.log_in}</Link>
                     }
                 </div>
             </div>

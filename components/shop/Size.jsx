@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const Size = () => {
+const Size = ({ dict }) => {
     const [size, setSize] = useState('');
     const searchParams = useSearchParams();
     const params = new URLSearchParams(searchParams);
@@ -30,7 +30,7 @@ const Size = () => {
     return (
         <div className="pt-4">
             <h3 className="text-xl text-gray-800 mb-3 uppercase font-medium">
-                size
+                {dict.size}
             </h3>
             <div className="flex items-center gap-2">
                 <div className={size === "size-xs" && "size-selector"}>

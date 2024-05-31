@@ -2,8 +2,10 @@ import { auth } from "@/auth";
 import AccountCard from "@/components/account/AccountCard";
 import { getUserByEmail } from "@/database/queries";
 import { redirect } from "next/navigation";
+import { getDictionary } from "../dictionaries";
 
-export default async function AccountPage() {
+export default async function AccountPage({ params: { lang } }) {
+  const dict = await getDictionary(lang);
   const session = await auth();
   if (!session) {
     redirect("/login");
@@ -15,25 +17,25 @@ export default async function AccountPage() {
       <div className=" grid grid-cols-3 gap-4 mx-auto max-w-5xl">
         <AccountCard
           user={user}
-          title={"Personal Profile"}
+          title={dict.personal_profile}
           firstPara={user?.name}
           secondPara={user?.email}
           thirdPara={user?.phone_number}
-        />
+          />
         <AccountCard
           user={user}
-          title={"Shipping address"}
+          title={dict.shipping_address}
           firstPara={user?.name}
           secondPara={user?.shipping_address}
           thirdPara={user?.shipping_address_number}
-        />
+          />
         <AccountCard
           user={user}
-          title={"Billing address"}
+          title={dict.billing_address}
           firstPara={user?.name}
           secondPara={user?.billing_address}
           thirdPara={user?.billing_address_number}
-        />
+          />
       </div>
     </div>
   );

@@ -4,16 +4,19 @@ import Categories from "@/components/home/Categories";
 import Features from "@/components/home/Features";
 import NewArrival from "@/components/home/NewArrival";
 import TrendingProducts from "@/components/home/TrendingProducts";
+import { getDictionary } from "./dictionaries";
 
-export default function Home() {
+export default async function Home({ params: { lang } }) {
+  const dict = await getDictionary(lang);
+
   return (
     <>
-      <Banner />
-      <Features />
-      <Categories />
-      <NewArrival />
-      <Ads />
-      <TrendingProducts />
+      <Banner dict={dict} />
+      <Features dict={dict} />
+      <Categories dict={dict} />
+      <NewArrival dict={dict} />
+      <Ads dict={dict} />
+      <TrendingProducts dict={dict} />
     </>
   );
 }

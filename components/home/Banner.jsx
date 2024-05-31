@@ -1,5 +1,7 @@
 
-const Banner = () => {
+const Banner = async ({ dict }) => {
+    
+
     return (
         <div className="bg-cover bg-no-repeat bg-center py-36" style={{ backgroundImage: "url('assets/images/banner-bg.jpg')" }}>
             <div className="container">
@@ -11,7 +13,9 @@ const Banner = () => {
                     magni eos dolorum ex quos dolores odio</p>
                 <div className="mt-12">
                     <a href="#" className="bg-primary border border-primary text-white px-8 py-3 font-medium 
-                    rounded-md hover:bg-transparent hover:text-primary">Shop Now</a>
+                    rounded-md hover:bg-transparent hover:text-primary">
+                        {dict?.shop_now}
+                    </a>
                 </div>
             </div>
         </div>

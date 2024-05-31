@@ -1,12 +1,12 @@
 import { getRelatedProducts } from "@/database/queries";
 import ProductCard from "../ProductCard";
 
-const RelatedProducts = async ({ category }) => {
+const RelatedProducts = async ({ category, dict }) => {
     const products = await getRelatedProducts(category);
 
     return (
         <div className="container pb-16">
-            <h2 className="text-2xl font-medium text-gray-800 uppercase mb-6">Related products</h2>
+            <h2 className="text-2xl font-medium text-gray-800 uppercase mb-6">{dict.related_products}</h2>
             <div className="grid grid-cols-4 gap-6">
                 {
                     products.map(product => <ProductCard

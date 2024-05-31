@@ -7,7 +7,7 @@ import { calculatePrice } from "@/utils";
 import Link from "next/link";
 import { useState } from "react";
 
-const AddToCartAndWishList = ({ product, userEmail }) => {
+const AddToCartAndWishList = ({ product, userEmail, dict }) => {
     const { wishlist, setWishlist } = useWishList();
     const { cart, setCart } = useCartList();
     const productId = product?.id;
@@ -89,7 +89,7 @@ const AddToCartAndWishList = ({ product, userEmail }) => {
                 {product?.short_description}
             </p>
             <div className="mt-4">
-                <h3 className="text-sm text-gray-800 uppercase mb-1">Quantity</h3>
+                <h3 className="text-sm text-gray-800 uppercase mb-1">{dict.quantity}</h3>
                 <div className="flex border border-gray-300 text-gray-600 divide-x divide-gray-300 w-max">
                     <button
                         onClick={decreaseItem}
@@ -113,7 +113,7 @@ const AddToCartAndWishList = ({ product, userEmail }) => {
                     className="bg-primary border border-primary text-white px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:bg-transparent hover:text-primary transition"
                 >
                     <i className="fa-solid fa-bag-shopping"></i>
-                    {foundInCart ? "Remove from cart" : "Add to cart"}
+                    {foundInCart ? `${dict.remove_from_cart}` : `${dict.add_to_cart}`}
                 </Link>
                 <Link
                     onClick={updateWishlist}
@@ -121,7 +121,7 @@ const AddToCartAndWishList = ({ product, userEmail }) => {
                     className="border border-gray-300 text-gray-600 px-8 py-2 font-medium rounded uppercase flex items-center gap-2 hover:text-primary transition"
                 >
                     <i className="fa-solid fa-heart"></i>
-                    {foundInWishlist ? "Remove from wishlist" : "Add to wishlist"}
+                    {foundInWishlist ? `${dict.remove_from_wishlist}` : `${dict.add_to_wishlist}`}
                 </Link>
             </div>
         </>

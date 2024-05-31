@@ -8,7 +8,7 @@ import { createPdf } from "@/utils/pdf-utils";
 import useUser from "@/hooks/useUser";
 
 
-const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
+const OrderSummary = ({ userData, acceptTerms, setAcceptTerms, dict }) => {
     const { user } = useUser();
     const [subTotal, setSubTotal] = useState(0);
     const [products, setProducts] = useState([]);
@@ -40,7 +40,7 @@ const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
                 console.log(error);
             }
             finally {
-                setCart([]); 
+                setCart([]);
             }
         }
         fetchOrder();
@@ -52,7 +52,7 @@ const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
             className="col-span-4 border border-gray-200 p-4 rounded"
         >
             <h4 className="text-gray-800 text-lg mb-4 font-medium uppercase">
-                order summary
+                {dict.order_summary}
             </h4>
             <div className="space-y-2">
                 {
@@ -69,15 +69,15 @@ const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
                 }
             </div>
             <div className="flex justify-between border-b border-gray-200 mt-1 text-gray-800 font-medium py-3 uppercas">
-                <p>subtotal</p>
+                <p>{dict.subtotal}</p>
                 <p>${subTotal}</p>
             </div>
             <div className="flex justify-between border-b border-gray-200 mt-1 text-gray-800 font-medium py-3 uppercas">
-                <p>shipping</p>
+                <p>{dict.shipping}</p>
                 <p>Free</p>
             </div>
             <div className="flex justify-between text-gray-800 font-medium py-3 uppercas">
-                <p className="font-semibold">Total</p>
+                <p className="font-semibold">{dict.total}</p>
                 <p>${subTotal}</p>
             </div>
             <div className="flex items-center mb-4 mt-2">
@@ -92,9 +92,8 @@ const OrderSummary = ({ userData, acceptTerms, setAcceptTerms }) => {
                     htmlFor="aggrement"
                     className="text-gray-600 ml-3 cursor-pointer text-sm"
                 >
-                    I agree to the{" "}
                     <a href="#" className="text-primary">
-                        terms & conditions
+                        {dict.terms_conditions}
                     </a>
                 </label>
             </div>

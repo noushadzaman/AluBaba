@@ -13,13 +13,13 @@ import {
     LinkedinIcon,
 } from 'next-share';
 
-const SocialShare = ({ id }) => {
-    
+const SocialShare = ({ id, dict }) => {
+
 
     return (
         <div className="flex gap-3 mt-4">
             <div>
-                <h1>Share in social media</h1>
+                <h1>{dict.share_in_social_media}</h1>
                 <div className='flex gap-4'>
                     <FacebookShareButton
                         url={`http://localhost:3000/productDetails/${id}`} >

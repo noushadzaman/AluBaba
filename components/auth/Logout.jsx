@@ -2,7 +2,7 @@
 
 import { signOut } from "next-auth/react";
 
-const Logout = () => {
+const Logout = ({ logout }) => {
     async function handleLogOut() {
         await signOut();
     }
@@ -11,7 +11,7 @@ const Logout = () => {
         <button
             onClick={handleLogOut}
             className="text-gray-200 hover:text-white transition btn "
-        >Log out</button>
+        >{logout}</button>
     );
 };
 

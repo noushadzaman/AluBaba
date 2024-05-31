@@ -1,9 +1,10 @@
 'use client';
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 
-const ProductCardTwo = ({ item, itemId }) => {
+const ProductCardTwo = ({ item, itemId, dict }) => {
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -36,7 +37,7 @@ const ProductCardTwo = ({ item, itemId }) => {
           {product?.name}
         </h2>
         <p className="text-gray-500 text-sm">
-          Availability: <span className="text-green-600">{product?.availability ? "In Stock" : "Out of stock"}</span>
+          {dict.availability}: <span className="text-green-600">{product?.availability ? "In Stock" : "Out of stock"}</span>
         </p>
       </div>
       <div className="text-primary text-lg font-semibold">
@@ -52,12 +53,12 @@ const ProductCardTwo = ({ item, itemId }) => {
           {`x${item?.number}`}
         </div>
       }
-      <a
-        href="#"
+      <Link
+        href={`/productDetails/${product?._id}`}
         className="px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
       >
-        add to cart
-      </a>
+        {dict.details}
+      </Link>
 
       <div className="text-gray-600 cursor-pointer hover:text-primary">
         <i className="fa-solid fa-trash"></i>
