@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const Search = () => {
+const Search = ({ dict }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const searchParams = useSearchParams();
     const { replace } = useRouter();
@@ -28,12 +28,12 @@ const Search = () => {
                 onChange={handleInputs}
                 type="text" name="search" id="search"
                 className="w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"
-                placeholder="search"
+                placeholder={`${dict.search}`}
             />
             <button
                 onClick={doSearch}
-                className="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary pt-[11px] transition hidden md:flex"
-            >Search</button>
+                className={`bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary pt-[11px] transition hidden md:flex`}
+            >{dict.search}</button>
         </div>
     );
 };

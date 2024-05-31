@@ -1,7 +1,7 @@
 'use client'
 
 import useCartList from "@/hooks/useCartList";
-import SingleOrder from "./singleOrder";
+import SingleOrder from "./SingleOrder.jsx";
 import { useState } from "react";
 import { orderProduct } from "@/app/actions";
 import { createPdf } from "@/utils/pdf-utils";

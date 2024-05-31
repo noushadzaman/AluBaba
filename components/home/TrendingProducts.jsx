@@ -12,6 +12,7 @@ const TrendingProducts = async ({ dict }) => {
                     products.map(product => <ProductCard
                         key={product.id}
                         product={product}
+                        dict={dict}
                     />)
                 }
             </div>

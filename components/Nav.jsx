@@ -2,12 +2,9 @@ import { auth } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
 import Logout from "./auth/Logout";
-import { getDictionary } from "@/app/[lang]/dictionaries";
 
-const Nav = async ({ lang }) => {
+const Nav = async ({ dict }) => {
     const session = await auth();
-    const dictionary = await getDictionary(lang);
-    console.log(lang);
 
     return (
         <nav className="bg-gray-800">
@@ -85,18 +82,18 @@ const Nav = async ({ lang }) => {
 
                 <div className="flex items-center justify-between flex-grow md:pl-12 py-5">
                     <div className="flex items-center space-x-6 capitalize">
-                        <Link href="/" className="text-gray-200 hover:text-white transition">{dictionary?.home}</Link>
-                        <Link href="/shop" className="text-gray-200 hover:text-white transition">{dictionary.shop}</Link>
-                        <Link href="/checkout" className="text-gray-200 hover:text-white transition">{dictionary.checklist}</Link>
-                        <Link href="/checkout" className="text-gray-200 hover:text-white transition">{dictionary.contact_us}</Link>
+                        <Link href="/" className="text-gray-200 hover:text-white transition">{dict.home}</Link>
+                        <Link href="/shop" className="text-gray-200 hover:text-white transition">{dict.shop}</Link>
+                        <Link href="/checkout" className="text-gray-200 hover:text-white transition">{dict.checklist}</Link>
+                        <Link href="/checkout" className="text-gray-200 hover:text-white transition">{dict.contact_us}</Link>
                     </div>
                     {
                         session?.user ?
-                            <Logout logout={dictionary.log_out} />
+                            <Logout logout={dict.log_out} />
                             : <Link
                                 href="/login"
                                 className="text-gray-200 hover:text-white transition"
-                            >{dictionary.log_in}</Link>
+                            >{dict.log_in}</Link>
                     }
                 </div>
             </div>

@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { getUserByEmail } from "@/database/queries";
 import LanguageProvider from "@/providers/LanguageProvider";
+import { getDictionary } from "./dictionaries";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params: { lang } }) {
+  const dict = await getDictionary(lang);
   await dbConnect();
   const session = await auth();
   const user = await getUserByEmail(session?.user?.email);
@@ -31,8 +33,8 @@ export default async function RootLayout({ children, params: { lang } }) {
           <UserProvider dbUser={user}>
             <WishlistProvider dbWishList={user?.wishlist}>
               <CartProvider dbCart={user?.cart_items}>
-                <Header />
-                <Nav lang={lang} />
+                <Header dict={dict} />
+                <Nav dict={dict} />
                 <div style={{ minHeight: `calc(100vh - 583.42px)` }}>
                   {children}
                 </div>

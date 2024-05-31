@@ -1,5 +1,7 @@
 'use client';
 
+import { FiEdit } from "react-icons/fi";
+import { MdOutlineSaveAs } from "react-icons/md";
 import { updateUserInDB } from "@/app/actions";
 import { useState } from "react";
 
@@ -33,12 +35,12 @@ const AccountCard = ({ user, title, firstPara, secondPara, thirdPara }) => {
                         <button
                             type="submit"
                             className="text-primary">
-                            Save
+                            <MdOutlineSaveAs />
                         </button>
                         : <p
                             onClick={() => setIsEdit(true)}
                             className="text-primary cursor-pointer">
-                            Edit
+                            <FiEdit />
                         </p>
                 }
             </div>

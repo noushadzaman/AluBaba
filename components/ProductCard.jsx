@@ -1,5 +1,7 @@
 "use client";
 
+import { BiCartAdd } from "react-icons/bi";
+import { FaStar } from "react-icons/fa";
 import { updateUserCart, increaseClickCount } from "@/app/actions";
 import useCartList from "@/hooks/useCartList";
 import useUser from "@/hooks/useUser";
@@ -7,7 +9,7 @@ import { calculatePrice } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, dict }) => {
     const { cart, setCart } = useCartList();
     const { user } = useUser();
     const foundInCart = cart.find(cartItem => cartItem.productId === product?.id);
@@ -58,53 +60,64 @@ const ProductCard = ({ product }) => {
                     </a>
                 </div>
             </div>
-            <div className="pt-4 pb-10 px-4">
-                <Link
-                    onClick={clickCount}
-                    href={`/productDetails/${product?.id}`}>
-                    <h4 className="uppercase text-nowrap font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                        {product?.name}
-                    </h4>
-                </Link>
-                <div className="flex items-baseline mb-1 space-x-2">
-                    <p className="text-xl text-primary font-semibold">
-                        {
-                            calculatePrice(product?.discount, product?.price, 1)
-                        }
-                    </p>
-                    <p className="text-sm text-gray-400 line-through">
-                        {
-                            product?.price * 1
-                        }
-                    </p>
-                </div>
-                <div className="flex items-center">
-                    <div className="flex gap-1 text-sm text-yellow-400">
-                        <span>
-                            <i className="fa-solid fa-star"></i>
-                        </span>
-                        <span>
-                            <i className="fa-solid fa-star"></i>
-                        </span>
-                        <span>
-                            <i className="fa-solid fa-star"></i>
-                        </span>
-                        <span>
-                            <i className="fa-solid fa-star"></i>
-                        </span>
-                        <span>
-                            <i className="fa-solid fa-star"></i>
-                        </span>
+            <div className="flex items-center justify-between mb-2">
+                <div className="pt-4 pb-10 px-4">
+                    <Link
+                        onClick={clickCount}
+                        href={`/productDetails/${product?.id}`}
+                    >
+                        <h4 className="uppercase text-nowrap font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+                            {product?.name}
+                        </h4>
+                    </Link>
+                    <div className="flex items-baseline mb-1 space-x-2">
+                        <p className="text-xl text-primary font-semibold">
+                            {
+                                calculatePrice(product?.discount, product?.price, 1)
+                            }
+                        </p>
+                        <p className="text-sm text-gray-400 line-through">
+                            {
+                                product?.price * 1
+                            }
+                        </p>
                     </div>
-                    <div className="text-xs text-gray-500 ml-3">(150)</div>
+                    <div className="flex items-center">
+                        <div className="flex gap-1 text-sm text-yellow-400">
+                            <span>
+                                <i className="fa-solid fa-star"><FaStar /></i>
+                            </span>
+                            <span>
+                                <i className="fa-solid fa-star"><FaStar /></i>
+                            </span>
+                            <span>
+                                <i className="fa-solid fa-star"><FaStar /></i>
+                            </span>
+                            <span>
+                                <i className="fa-solid fa-star"><FaStar /></i>
+                            </span>
+                            <span>
+                                <i className="fa-solid fa-star"><FaStar /></i>
+                            </span>
+                        </div>
+                        <div className="text-xs text-gray-500 ml-3">(150)</div>
+                    </div>
                 </div>
+                {
+                    !foundInCart && <Link
+                        href={foundInCart ? "" : "/cart"}
+                        onClick={updateCart}
+                    >
+                        <BiCartAdd className={"text-primary text-2xl cursor-pointer mr-5"} />
+                    </Link>
+                }
             </div>
             <Link
-                href={foundInCart ? "" : "/cart"}
+                href={`/productDetails/${product?.id}`}
                 onClick={updateCart}
-                className={`block w-full py-1 text-center border rounded-b   transition bottom-0 absolute ${foundInCart ? "bg-gray-200 text-white" : " hover:bg-transparent border-primary hover:text-primary text-white bg-primary"}`}
+                className={`block w-full py-1 text-center border rounded-b   transition bottom-0 absolute  hover:bg-transparent border-primary hover:text-primary text-white bg-primary`}
             >
-                Add to cart
+                {dict.details}
             </Link>
         </duv>
     );

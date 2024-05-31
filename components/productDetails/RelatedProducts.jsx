@@ -10,6 +10,7 @@ const RelatedProducts = async ({ category, dict }) => {
             <div className="grid grid-cols-4 gap-6">
                 {
                     products.map(product => <ProductCard
+                        dict={dict}
                         key={product?.id}
                         product={product}
                     />)
