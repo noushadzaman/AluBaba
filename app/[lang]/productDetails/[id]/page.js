@@ -26,7 +26,10 @@ export default async function page({ params: { id, lang } }) {
   return (
     <>
       <div className="container grid grid-cols-2 gap-6">
-        <ProductGallery gallery={product?.images} dict={dict} />
+        <ProductGallery
+          gallery={[product?.thumbnail, ...product?.images]}
+          dict={dict}
+        />
         <ProductInfo product={product} dict={dict} />
       </div>
       <Description description={product?.description} dict={dict} />

@@ -6,6 +6,9 @@ import useWishList from "@/hooks/useWishList";
 import { calculatePrice } from "@/utils";
 import Link from "next/link";
 import { useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddToCartAndWishList = ({ product, userEmail, dict }) => {
     const { wishlist, setWishlist } = useWishList();
@@ -22,11 +25,13 @@ const AddToCartAndWishList = ({ product, userEmail, dict }) => {
             setWishlist([
                 ...newWishes
             ])
+            toast.success(`Removed the item from wishlist.`);
         } else {
             setWishlist([
                 ...wishlist,
                 productId
             ])
+            toast.success(`Added the item to wishlist`);
         }
     }
 
@@ -39,11 +44,13 @@ const AddToCartAndWishList = ({ product, userEmail, dict }) => {
                 setCart([
                     ...newCart,
                 ])
+                toast.success("Item removed from cart.");
             } else {
                 setCart([
                     ...newCart,
                     { productId, number: deletedItem.number - items }
                 ])
+                toast.success(`${items} of this items has been removed from cart.`);
             }
         }
         else {
@@ -51,6 +58,7 @@ const AddToCartAndWishList = ({ product, userEmail, dict }) => {
                 ...cart,
                 { productId, number: items }
             ])
+            toast.success(`${items} ${product.name} has been added to cart.`);
         }
     }
 

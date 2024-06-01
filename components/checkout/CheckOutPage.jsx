@@ -1,9 +1,24 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OrderSummary from "./OrderSummary";
+import { redirect } from "next/navigation";
+import useCartList from "@/hooks/useCartList";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CheckOutPage = ({ dict }) => {
+    const [hasRedirected, setHasRedirected] = useState(false);
+    const { cart } = useCartList();
+
+    useEffect(() => {
+        if (cart.length === 0 && !hasRedirected) {
+            toast.warn("No items in the cart added yet!");
+            setHasRedirected(true);
+            redirect(`/shop`);
+        }
+    }, [cart]);
+
     const [userData, setUserData] = useState({
         firstName: "",
         lastName: "",

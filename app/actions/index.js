@@ -45,11 +45,11 @@ async function increaseClickCount(productId) {
   }
 } 
 
-async function login(formData) {
+async function login(data) {
   try {
     const response = await signIn("credentials", {
-      email: formData.get("email"),
-      password: formData.get("password"),
+      email: data.email,
+      password: data.password,
       redirect: false,
     });
     return response;

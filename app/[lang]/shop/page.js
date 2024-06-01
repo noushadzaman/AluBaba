@@ -1,5 +1,5 @@
 import ProductCard from "@/components/ProductCard";
-import Filter from "@/components/shop/filter";
+import Filter from "@/components/shop/Filter";
 import { getAllProducts } from "@/database/queries";
 import { getDictionary } from "../dictionaries";
 

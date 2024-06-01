@@ -1,52 +1,32 @@
-import Image from "next/image";
+'use client';
 
-const ProductGallery = () => {
-    
+import Image from "next/image";
+import { useState } from "react";
+
+const ProductGallery = ({ gallery }) => {
+    const [mainImg, setMainImg] = useState(0);
+
     return (
-        <div>
+        <div className="relative h-[700px]">
             <Image
                 height={800}
                 width={800}
-                src="/assets/images/products/product1.jpg"
+                src={gallery[mainImg]}
                 alt="product"
                 className="w-full"
             />
-            <div className="grid grid-cols-5 gap-4 mt-4">
-                <Image
-                    height={800}
-                    width={800}
-                    src="/assets/images/products/product2.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border border-primary"
-                />
-                <Image
-                    height={800}
-                    width={800}
-                    src="/assets/images/products/product3.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                />
-                <Image
-                    height={800}
-                    width={800}
-                    src="/assets/images/products/product4.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                />
-                <Image
-                    height={800}
-                    width={800}
-                    src="/assets/images/products/product5.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                />
-                <Image
-                    height={800}
-                    width={800}
-                    src="/assets/images/products/product6.jpg"
-                    alt="product2"
-                    className="w-full cursor-pointer border"
-                />
+            <div className="grid grid-cols-5 gap-4 mt-4 bottom-0 absolute">
+                {
+                    gallery.map((img, idx) => <Image
+                        onClick={() => setMainImg(idx)}
+                        key={idx}
+                        height={800}
+                        width={800}
+                        src={`${img}`}
+                        alt="product2"
+                        className="w-full cursor-pointer border border-primary"
+                    />)
+                }
             </div>
         </div>
     );

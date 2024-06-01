@@ -8,6 +8,8 @@ import useUser from "@/hooks/useUser";
 import { calculatePrice } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductCard = ({ product, dict }) => {
     const { cart, setCart } = useCartList();
@@ -21,6 +23,7 @@ const ProductCard = ({ product, dict }) => {
 
     async function updateCart() {
         if (foundInCart) {
+            toast.error("Already available!");
             return;
         }
         await updateUserCart({ userEmail: user?.email, productId: product?.id, items: 1 });
@@ -28,6 +31,7 @@ const ProductCard = ({ product, dict }) => {
             ...cart,
             { productId: product?.id, number: 1 }
         ])
+        toast.success("Added to cart!");
     }
 
     return (
@@ -114,7 +118,6 @@ const ProductCard = ({ product, dict }) => {
             </div>
             <Link
                 href={`/productDetails/${product?.id}`}
-                onClick={updateCart}
                 className={`block w-full py-1 text-center border rounded-b   transition bottom-0 absolute  hover:bg-transparent border-primary hover:text-primary text-white bg-primary`}
             >
                 {dict.details}

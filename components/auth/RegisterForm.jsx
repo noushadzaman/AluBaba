@@ -3,24 +3,22 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const RegisterForm = () => {
     const [error, setError] = useState("");
-    const [agrement, setAgrement] = useState(false);
     const router = useRouter();
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
 
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        if (!agrement) {
-            setError("Please agree terms and conditions");
-            return;
-        }
+    const onSubmit = async (data) => {
+        const { name, email, password, confirm } = data;
+
         try {
-            const formData = new FormData(event.currentTarget);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const password = formData.get('password');
-            const confirm = formData.get('confirm');
             if (password !== confirm) {
                 setError("Password didn't matched");
                 return;
@@ -34,18 +32,18 @@ const RegisterForm = () => {
                     name, email, password
                 })
             })
-
             res.status === 201 && router.push("/login");
         }
         catch (error) {
             setError(error.message);
+            console.log(error)
         }
     }
 
     return (
         <>
             <div className="text-xl text-red-500 text-center">{error && error}</div>
-            <form onSubmit={onSubmit}  >
+            <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="space-y-2">
                     <div>
                         <label htmlFor="name" className="text-gray-600 mb-2 block">
@@ -56,8 +54,10 @@ const RegisterForm = () => {
                             name="name"
                             id="name"
                             className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                            placeholder="fulan fulana"
+                            placeholder="your name"
+                            {...register("name", { required: "Name is required" })}
                         />
+                        {errors.name && <span className="text-red-400">{errors.name.message}</span>}
                     </div>
                     <div>
                         <label htmlFor="email" className="text-gray-600 mb-2 block">
@@ -68,8 +68,10 @@ const RegisterForm = () => {
                             name="email"
                             id="email"
                             className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                            placeholder="youremail.@domain.com"
+                            placeholder="your email.@domain.com"
+                            {...register("email", { required: "Email is required" })}
                         />
+                        {errors.email && <span className="text-red-400">{errors.email.message}</span>}
                     </div>
                     <div>
                         <label htmlFor="password" className="text-gray-600 mb-2 block">
@@ -81,7 +83,14 @@ const RegisterForm = () => {
                             id="password"
                             className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
                             placeholder="*******"
+                            {...register("password", {
+                                required: "password is required", minLength: {
+                                    value: 8,
+                                    message: "password must contain at least 8 characters"
+                                }
+                            })}
                         />
+                        {errors.password && <span className="text-red-400">{errors.password?.message}</span>}
                     </div>
                     <div>
                         <label htmlFor="confirm" className="text-gray-600 mb-2 block">
@@ -93,17 +102,24 @@ const RegisterForm = () => {
                             id="confirm"
                             className="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
                             placeholder="*******"
+                            {...register("confirm", {
+                                required: "password is required", minLength: {
+                                    value: 8,
+                                    message: "password must contain at least 8 characters"
+                                }
+                            })}
                         />
+                        {errors.confirm && <span className="text-red-400">{errors.confirm?.message}</span>}
                     </div>
                 </div>
                 <div className="mt-6">
                     <div className="flex items-center">
                         <input
-                            onChange={() => setAgrement(!agrement)}
                             type="checkbox"
                             name="agrement"
                             id="agrement"
                             className="text-primary focus:ring-0 rounded-sm cursor-pointer"
+                            {...register("agrement", { required: "Terms and conditions must be accepted" })}
                         />
                         <label htmlFor="aggrement" className="text-gray-600 ml-3 cursor-pointer">
                             I have read and agree to the{" "}
@@ -112,6 +128,7 @@ const RegisterForm = () => {
                             </Link>
                         </label>
                     </div>
+                    {errors.agrement && <span className="text-red-400">{errors.agrement?.message}</span>}
                 </div>
                 <div className="mt-4">
                     <button
