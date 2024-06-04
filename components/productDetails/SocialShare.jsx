@@ -22,23 +22,23 @@ const SocialShare = ({ id, dict }) => {
                 <h1>{dict.share_in_social_media}</h1>
                 <div className='flex gap-4'>
                     <FacebookShareButton
-                        url={`http://localhost:3000/productDetails/${id}`} >
+                        url={`https://alu-baba.vercel.app/productDetails/${id}`} >
                         <FacebookIcon size={32} round />
                     </FacebookShareButton>
                     <PinterestShareButton
-                        url={`http://localhost:3000/productDetails/${id}`} >
+                        url={`https://alu-baba.vercel.app/productDetails/${id}`} >
                         <PinterestIcon size={32} round />
                     </PinterestShareButton>
                     <RedditShareButton
-                        url={`http://localhost:3000/productDetails/${id}`} >
+                        url={`https://alu-baba.vercel.app/productDetails/${id}`} >
                         <RedditIcon size={32} round />
                     </RedditShareButton>
                     <WhatsappShareButton
-                        url={`http://localhost:3000/productDetails/${id}`} >
+                        url={`https://alu-baba.vercel.app/productDetails/${id}`} >
                         <WhatsappIcon size={32} round />
                     </WhatsappShareButton>
                     <LinkedinShareButton
-                        url={`http://localhost:3000/productDetails/${id}`} >
+                        url={`https://alu-baba.vercel.app/productDetails/${id}`} >
                         <LinkedinIcon size={32} round />
                     </LinkedinShareButton>
                 </div>

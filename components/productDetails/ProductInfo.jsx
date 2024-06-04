@@ -6,7 +6,7 @@ const ProductInfo = async ({ product, dict }) => {
     const session = await auth();
 
     return (
-        <div>
+        <div className="mt-[100px]">
             <h2 className="text-3xl font-medium uppercase mb-2">
                 {product?.name}
             </h2>

@@ -7,7 +7,7 @@ const ProductGallery = ({ gallery }) => {
     const [mainImg, setMainImg] = useState(0);
 
     return (
-        <div className="relative h-[700px]">
+        <div>
             <Image
                 height={800}
                 width={800}
@@ -15,7 +15,7 @@ const ProductGallery = ({ gallery }) => {
                 alt="product"
                 className="w-full"
             />
-            <div className="grid grid-cols-5 gap-4 mt-4 bottom-0 absolute">
+            <div className="grid grid-cols-5 gap-4 mt-4">
                 {
                     gallery.map((img, idx) => <Image
                         onClick={() => setMainImg(idx)}

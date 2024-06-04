@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Bespoke Refrigerator",
+        "thumbnail": "https://i.ibb.co/zZPdHNv/RF23-DB9900-QD-01-Stainless-Steel-SCOM-ezgif-com-webp-to-jpg-converter-Photoroom.png",
+        "images": [
+            "https://i.ibb.co/MsrLWHV/RF23-DB9900-QD-02-Stainless-Steel-SCOM-ezgif-com-webp-to-jpg-converter.jpg",
+            "https://i.ibb.co/Rj8SgNR/RF23-DB9900-QD-03-Stainless-Steel-SCOM-ezgif-com-webp-to-jpg-converter.jpg",
+            "https://i.ibb.co/c38kDdn/RF23-DB9900-QD-05-Stainless-Steel-SCOM-ezgif-com-webp-to-jpg-converter.jpg",
+            "https://i.ibb.co/jH5ptVR/RF23-DB9900-QD-08-Stainless-Steel-SCOM-ezgif-com-webp-to-jpg-converter.jpg"
+        ],
+        "date": "2024-04-04T00:00:00.000Z",
+        "availability": true,
+        "brand": "Samsung",
+        "category": "home-electronics",
+        "click_count": 0,
+        "quantity": 32,
+        "sku": "BE45SAM",
+        "price": 3299000,
+        "discount": 20,
+        "description": "The TUF Gaming B560M-E is a micro-ATX motherboard crafted for gamers and power users, providing a reliable and high-performance foundation for building a gaming PC. Supporting both 11th and 10th Gen Intel Core processors, this motherboard leverages the B560 chipset to offer advanced features and exceptional performance.Equipped with PCIe 4.0 support, the TUF Gaming B560M-E ensures faster data transfer rates and improved bandwidth for the latest graphics cards and storage devices. The dual M.2 slots provide ample space for high-speed NVMe SSDs, significantly enhancing storage performance and reducing load times in games and applications.Durability and stability are core aspects of the TUF series, and the B560M-E is no exception. It features military-grade components, including TUF capacitors and alloy chokes, ensuring longevity and reliable operation under intense gaming conditions. The motherboard also boasts comprehensive cooling solutions, such as VRM heatsinks and hybrid fan headers, to maintain optimal temperatures during extended gaming sessions.Connectivity options include USB 3.2 Gen 2 Type-A and Type-C ports, ensuring compatibility with a wide range of peripherals. Additionally, the onboard Realtek S1200A audio codec delivers high-quality sound, enhancing the immersive gaming experience.Overall, the TUF Gaming B560M-E combines robust performance, durability, and gaming-centric features, making it an ideal choice for building a dependable and powerful gaming system.",
+        "short_description": "The TUF Gaming B560M-E is a robust micro-ATX motherboard designed for gamers, featuring support for 11th and 10th Gen Intel CPUs, PCIe 4.0, dual M.2 slots, and comprehensive cooling solutions. It offers enhanced durability, gaming-focused features, and reliable performance, making it an excellent choice for building a high-performance gaming rig."
+    }
+]

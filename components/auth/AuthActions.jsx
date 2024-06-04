@@ -5,10 +5,10 @@ import Link from "next/link";
 
 const AuthActions = ({ isLogin }) => {
     const handleAuthGoogle = (event) => {
-        signIn("google", { callbackUrl: 'http://localhost:3000/wishlist' });
+        signIn("google", { callbackUrl: 'https://alu-baba.vercel.app/wishlist' });
     }
     const handleAuthFaceBook = (event) => {
-        signIn("facebook", { callbackUrl: 'http://localhost:3000/wishlist' });
+        signIn("facebook", { callbackUrl: 'https://alu-baba.vercel.app/wishlist' });
     }
 
     return (
