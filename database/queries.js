@@ -2,14 +2,17 @@ import { categoryModel } from "@/models/category-model";
 import { orderModel } from "@/models/order-model";
 import { productModel } from "@/models/product-model";
 import { userModel } from "@/models/user-model";
+import { dbConnect } from "@/service/mongo";
 import { calculatePrice, transformArray, transformObj } from "@/utils";
 
 export async function getUserByEmail(email) {
+  await dbConnect();
   const user = await userModel.findOne({ email: email }).lean();
   return user;
 }
 
 export async function updateUser(newUser) {
+  await dbConnect();
   const user = await userModel.findById(newUser?._id);
   if (user) {
     if (newUser.phone_number) {
@@ -32,6 +35,7 @@ export async function updateUser(newUser) {
 }
 
 export async function addToWishList(userEmail, productId) {
+  await dbConnect();
   try {
     const user = await userModel.findOne({ email: userEmail });
     if (user) {
@@ -55,6 +59,7 @@ export async function addToWishList(userEmail, productId) {
 }
 
 export async function addToCart(userEmail, productId, items) {
+  await dbConnect();
   try {
     const product = await productModel.findById(productId);
     if (product) {
@@ -119,6 +124,7 @@ export async function getAllProducts(
   max_price,
   size
 ) {
+  await dbConnect();
   const regex = new RegExp(product, "i");
   let products = await productModel
     .find({ name: { $regex: regex } })
@@ -148,11 +154,13 @@ export async function getAllProducts(
 }
 
 export async function getProductById(id) {
+  await dbConnect();
   const product = await productModel.findById(id).lean();
   return transformObj(product);
 }
 
 export async function placeOrder(orderData, email) {
+  await dbConnect();
   const product = new orderModel(orderData);
   const response = await product.save();
   const user = await userModel.findOne({ email: email });
@@ -164,6 +172,7 @@ export async function placeOrder(orderData, email) {
 }
 
 export async function clickCount(productId) {
+  await dbConnect();
   const product = await productModel.findById(productId);
   product.click_count = product.click_count + 1;
   const response = await product.save();
@@ -171,6 +180,7 @@ export async function clickCount(productId) {
 }
 
 export async function getTrendingProduct() {
+  await dbConnect();
   const products = await productModel
     .find({ click_count: { $exists: true, $ne: 0 } })
     .sort({ click_count: -1 })
@@ -180,16 +190,19 @@ export async function getTrendingProduct() {
 }
 
 export async function getNewArrivalProducts() {
+  await dbConnect();
   const products = await productModel.find().sort({ date: -1 }).limit(4).lean();
   return transformArray(products);
 }
 
 export async function getCategories() {
+  await dbConnect();
   const categories = await categoryModel.find().lean();
   return transformArray(categories);
 }
 
 export async function getRelatedProducts(category) {
+  await dbConnect();
   let products = await productModel
     .find({ category: category })
     .select(["name", "thumbnail", "price", "discount", "category", "size"])

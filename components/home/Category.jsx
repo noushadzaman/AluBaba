@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Category = ({ img, name, category }) => {
-    const { replace } = useRouter();
+    const { router } = useRouter();
     const handleLink = () => {
-        replace(`http://localhost:3000/shop?category=${category}`)
+        router.push(`/shop?category=${category}`)
     }
 
     return (
