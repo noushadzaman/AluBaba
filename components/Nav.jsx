@@ -15,7 +15,7 @@ const Nav = async ({ dict }) => {
                         <i className="fa-solid fa-bars"></i>
                     </span>
                     <span className="capitalize ml-2 text-white hidden">All Categories</span>
-                    <div className="absolute left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible w-[600px]"
+                    {/* <div className="absolute left-0 top-full bg-white shadow-md py-3 divide-y divide-gray-300 divide-dashed opacity-0 group-hover:opacity-100 transition duration-300 invisible group-hover:visible w-[600px]"
                         style={{ width: "300px" }}>
                         <a href="#" className="flex items-center px-6 py-3 hover:bg-gray-100 transition">
                             <Image
@@ -77,7 +77,7 @@ const Nav = async ({ dict }) => {
                             />
                             <span className="ml-6 text-gray-600 text-sm">Mattress</span>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="flex items-center justify-between flex-grow md:pl-12 py-5">

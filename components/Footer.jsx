@@ -1,17 +1,21 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
         <footer className="bg-white pt-16 pb-12 border-t border-gray-100">
             <div className="container grid grid-cols-1 ">
                 <div className="col-span-1 space-y-4">
-                    <Image
-                        width={100}
-                        height={100}
-                        src="assets/images/logo.svg"
-                        alt="logo"
-                        className="w-30"
-                    />
+                    <Link href="/" className="flex items-center font-bold text-[#202938]">
+                        <Image
+                            height={250}
+                            width={250}
+                            src="/assets/images/logo.svg"
+                            alt="Logo"
+                            className="w-[50px]"
+                        />
+                        Alubaba
+                    </Link>
                     <div className="mr-2">
                         <p className="text-gray-500">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, hic?

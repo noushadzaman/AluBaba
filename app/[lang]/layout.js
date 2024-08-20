@@ -18,7 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "LWSKart - Home",
+  title: "AluBaba - Home",
   description: "Your only online shop.",
 };
 

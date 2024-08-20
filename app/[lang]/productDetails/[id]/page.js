@@ -11,7 +11,7 @@ export async function generateMetadata({ params: { id } }) {
   const product = await getProductById(id);
 
   return {
-    title: `LWSKart - ${product?.name}`,
+    title: `AluBaba - ${product?.name}`,
     description: `${product?.short_description}`,
     openGraph: {
       images: [product?.thumbnail],

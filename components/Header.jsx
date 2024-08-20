@@ -16,14 +16,15 @@ const Header = ({ dict }) => {
     return (
         <header className="py-4 shadow-sm bg-white">
             <div className="container flex items-center justify-between">
-                <Link href="/">
+                <Link href="/" className="flex items-center font-bold text-[#202938]">
                     <Image
                         height={250}
                         width={250}
                         src="/assets/images/logo.svg"
                         alt="Logo"
-                        className="w-32"
+                        className="w-[50px]"
                     />
+                    Alubaba
                 </Link>
                 <Search dict={dict} />
                 <div className="flex items-center space-x-14">
